@@ -34,7 +34,7 @@ radius = 16.0
 height = 30.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 105.0
+radius = 226.08
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 21.0
@@ -51,6 +51,7 @@ script = ExtResource( 14 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -59,7 +60,6 @@ position = Vector2( 0, 8 )
 shape = SubResource( 2 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 10 )]
-visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 4 )

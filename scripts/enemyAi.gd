@@ -78,9 +78,9 @@ func _on_HurtBox_area_entered(area):
 
 # UNCOMMENT and delete other line once player is working
 #	stats.health -= area.damage
-	queue_free()
+	#queue_free()
 	stats.health -= 1
-	knockback = Vector2.RIGHT * 100
+	knockback = Vector2.RIGHT * 175
 
 func _on_Stats_no_health():
 	queue_free()

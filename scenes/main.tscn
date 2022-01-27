@@ -22,4 +22,5 @@ margin_right = 462.0
 margin_bottom = 188.0
 
 [node name="BigDemon" parent="." instance=ExtResource( 4 )]
-position = Vector2( 12, 88 )
+position = Vector2( 170, 196 )
+FRICTION = 220
