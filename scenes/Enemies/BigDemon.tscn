@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/enemies/bigdemon/big_demon_idle_anim_f1.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/bigdemon/big_demon_idle_anim_f2.png" type="Texture" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://scenes/HitBox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Enemies/SoftCollision.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Enemies/Wander.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scripts/enemyAi.gd" type="Script" id=14]
 [ext_resource path="res://scenes/Stats.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/UI/HealthUI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/enemyAi.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -45,7 +46,7 @@ radius = 15.0333
 
 [node name="BigDemon" type="KinematicBody2D"]
 collision_layer = 16
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
@@ -89,9 +90,22 @@ shape = SubResource( 5 )
 
 [node name="Stats" parent="." instance=ExtResource( 15 )]
 
+[node name="HealthUI" parent="." instance=ExtResource( 16 )]
+
+[node name="Label" parent="HealthUI" index="0"]
+margin_left = -28.0
+margin_top = -41.0
+margin_right = 30.0
+margin_bottom = -24.0
+text = "HP: 3"
+align = 1
+valign = 1
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[connection signal="update_health" from="Stats" to="." method="_on_Stats_update_health"]
 
 [editable path="PlayerDetectionZone"]
 [editable path="HurtBox"]
 [editable path="SoftCollision"]
+[editable path="HealthUI"]
