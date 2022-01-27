@@ -38,6 +38,8 @@ func _physics_process(delta):
 			if wanderController.get_time_left() == 0: 
 				state = pick_new_state([IDLE, WANDER])
 				wanderController.timer_start(rand_range(1, 3))
+				
+			sprite.animation = "Idle"
 		WANDER: 
 			seek_player()
 			if wanderController.get_time_left() == 0: 
@@ -47,6 +49,7 @@ func _physics_process(delta):
 			var direction = global_position.direction_to(wanderController.target_position)
 			velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 			sprite.flip_h = velocity.x < 0
+			sprite.animation = "Run"
 						
 			if global_position.distance_to(wanderController.target_position) <= WANDER_RANGE:
 				state = pick_new_state([IDLE, WANDER])
@@ -60,6 +63,7 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 			sprite.flip_h = velocity.x < 0
+			sprite.animation = "Run"
 		
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * 400
