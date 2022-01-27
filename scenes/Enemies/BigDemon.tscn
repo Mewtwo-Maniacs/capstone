@@ -1,0 +1,97 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/enemies/bigdemon/big_demon_idle_anim_f1.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/bigdemon/big_demon_idle_anim_f2.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/bigdemon/big_demon_idle_anim_f3.png" type="Texture" id=3]
+[ext_resource path="res://assets/Enemies/bigdemon/big_demon_idle_anim_f1.png" type="Texture" id=4]
+[ext_resource path="res://assets/Enemies/bigdemon/big_demon_run_anim_f0.png" type="Texture" id=5]
+[ext_resource path="res://assets/Enemies/bigdemon/big_demon_idle_anim_f0.png" type="Texture" id=6]
+[ext_resource path="res://assets/Enemies/bigdemon/big_demon_idle_anim_f2.png" type="Texture" id=7]
+[ext_resource path="res://assets/Enemies/bigdemon/big_demon_idle_anim_f3.png" type="Texture" id=8]
+[ext_resource path="res://scenes/HurtBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/HitBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Enemies/SoftCollision.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Enemies/Wander.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/enemyAi.gd" type="Script" id=14]
+[ext_resource path="res://scenes/Stats.tscn" type="PackedScene" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 16.0
+height = 30.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 105.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 21.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 15.0333
+
+[node name="BigDemon" type="KinematicBody2D"]
+collision_layer = 16
+script = ExtResource( 14 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 8 )
+shape = SubResource( 2 )
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+shape = SubResource( 4 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 9 )]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 0, 7 )
+shape = SubResource( 3 )
+
+[node name="HitBox" parent="." instance=ExtResource( 11 )]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="SoftCollision" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0, 8 )
+shape = SubResource( 5 )
+
+[node name="WanderController" parent="." instance=ExtResource( 13 )]
+
+[node name="Stats" parent="." instance=ExtResource( 15 )]
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+
+[editable path="PlayerDetectionZone"]
+[editable path="HurtBox"]
+[editable path="SoftCollision"]
