@@ -119,6 +119,7 @@ _global_script_class_icons={
 config/name="Capstone"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
+<<<<<<<HEAD[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [autoload]
 
@@ -136,6 +137,21 @@ window/stretch/mode="2d"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg" )
+
+[firebase]
+
+environment_variables/apiKey="AIzaSyAX3Lao7jn4yX3M5RCobN568bgfbTxt3hU"
+environment_variables/authDomain="godot-project-a20fb.firebaseapp.com"
+environment_variables/databaseURL=""
+environment_variables/projectId="godot-project-a20fb"
+environment_variables/storageBucket="godot-project-a20fb.appspot.com"
+environment_variables/messagingSenderId="899874770426"
+environment_variables/appId="1:899874770426:web:8ee251baa64013b92ea843"
+environment_variables/measurementId="G-9ZFLVJSJNN"
+environment_variables/clientId=""
+environment_variables/clientSecret=""
+environment_variables/domainUriPrefix=""
+environment_variables/cacheLocation="user://.firebase_cache"
 
 [importer_defaults]
 
