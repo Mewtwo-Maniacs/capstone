@@ -124,6 +124,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+Stats="*res://scripts/Stats.gd"
 
 [display]
 
