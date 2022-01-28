@@ -119,7 +119,6 @@ _global_script_class_icons={
 config/name="Capstone"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
-<<<<<<<HEAD[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [autoload]
 
@@ -128,8 +127,8 @@ Stats="*res://scripts/Stats.gd"
 
 [display]
 
-window/size/width=640
-window/size/height=360
+window/size/width=320
+window/size/height=180
 window/size/test_width=1280
 window/size/test_height=720
 window/vsync/use_vsync=false
@@ -215,15 +214,6 @@ death={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":72,"unicode":0,"echo":false,"script":null)
  ]
 }
-
-[layer_names]
-
-2d_physics/layer_1="World"
-2d_physics/layer_2="Player"
-2d_physics/layer_3="PlayerHurtbox"
-2d_physics/layer_4="EnemyHurtbox"
-2d_physics/layer_5="Enemy"
-2d_physics/layer_6="SoftCollisions"
 
 [physics]
 
