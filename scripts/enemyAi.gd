@@ -85,7 +85,7 @@ func _on_HurtBox_area_entered(area):
 #	stats.health -= area.damage
 	stats.health -= 1
 	knockback = Vector2.RIGHT * 150
-#
+
 func _on_Stats_no_health():
 	queue_free()
 

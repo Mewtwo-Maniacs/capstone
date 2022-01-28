@@ -17,13 +17,16 @@ position = Vector2( 2, 6 )
 current = true
 
 [node name="StatWindow" parent="Player" instance=ExtResource( 3 )]
-margin_left = 129.0
-margin_top = -177.0
-margin_right = 462.0
-margin_bottom = 188.0
+margin_left = -60.0
+margin_top = -41.0
+margin_right = 56.0
+margin_bottom = 51.0
 
 [node name="BigDemon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 259, 179 )
+
+[node name="AnimatedSprite" parent="BigDemon" index="0"]
+frame = 2
 
 [editable path="BigDemon"]
 [editable path="BigDemon/PlayerDetectionZone"]
