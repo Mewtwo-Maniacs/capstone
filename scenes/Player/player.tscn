@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://assets/characters/char3/Character with sword and shield/walk/walk up2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/playerScript.gd" type="Script" id=2]
@@ -74,6 +74,9 @@
 [ext_resource path="res://assets/characters/char3/Character with sword and shield/roll/roll left1.png" type="Texture" id=72]
 [ext_resource path="res://assets/characters/char3/Character with sword and shield/roll/roll down1.png" type="Texture" id=73]
 [ext_resource path="res://scenes/Player/HitBox.tscn" type="PackedScene" id=74]
+[ext_resource path="res://scenes/HurtBox.tscn" type="PackedScene" id=75]
+[ext_resource path="res://scenes/Player/PlayerStats.tscn" type="PackedScene" id=76]
+[ext_resource path="res://scenes/UI/HealthUI.tscn" type="PackedScene" id=77]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 5.5 )
@@ -1380,13 +1383,17 @@ graph_offset = Vector2( -254, -58 )
 radius = 11.0
 height = 14.0
 
+[sub_resource type="CapsuleShape2D" id=55]
+radius = 8.0
+height = 8.0
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 388, 209 )
 collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionBox2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 9.25 )
+position = Vector2( -3, 9 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -1431,6 +1438,7 @@ parameters/Roll/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( -0.244686, 0.368421 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
+visible = false
 position = Vector2( 0, 6 )
 scale = Vector2( 1, 1.15 )
 
@@ -1442,6 +1450,33 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 shape = SubResource( 52 )
 
+[node name="HurtBox" parent="." instance=ExtResource( 75 )]
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( -3, 7 )
+shape = SubResource( 55 )
+
+[node name="PlayerStats" parent="." instance=ExtResource( 76 )]
+
+[node name="HealthUI" parent="." instance=ExtResource( 77 )]
+
+[node name="Label" parent="HealthUI" index="0"]
+margin_left = -28.0
+margin_top = -41.0
+margin_right = 30.0
+margin_bottom = -24.0
+text = "HP: 5"
+align = 1
+valign = 1
+
 [connection signal="area_entered" from="HitboxPivot/SwordHitbox" to="." method="_on_SwordHitbox_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="no_health" from="PlayerStats" to="." method="_on_PlayerStats_no_health"]
+[connection signal="update_health" from="PlayerStats" to="." method="_on_PlayerStats_update_health"]
 
 [editable path="HitboxPivot/SwordHitbox"]
+[editable path="HurtBox"]
+[editable path="HealthUI"]

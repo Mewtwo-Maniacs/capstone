@@ -23,6 +23,7 @@ onready var softCollision = $SoftCollision
 onready var stats = $Stats
 onready var label = $HealthUI/Label
 
+
 func _ready():
 	state = pick_new_state([IDLE, WANDER])
 
@@ -84,8 +85,9 @@ func _on_HurtBox_area_entered(area):
 # UNCOMMENT and delete other line once player is working
 #	stats.health -= area.damage
 	stats.health -= 1
-	knockback = Vector2.RIGHT * 150
-#
+	move_and_slide(-velocity * 70)
+
+
 func _on_Stats_no_health():
 	queue_free()
 
