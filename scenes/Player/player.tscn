@@ -647,7 +647,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=26]
 resource_name = "death"
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
