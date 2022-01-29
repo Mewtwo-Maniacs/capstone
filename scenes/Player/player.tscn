@@ -143,6 +143,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("HitboxPivot/SwordHitbox:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_down"
@@ -926,6 +950,18 @@ tracks/3/keys = {
 "method": "roll_animation_finished"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=35]
 resource_name = "roll_left"
@@ -979,6 +1015,18 @@ tracks/3/keys = {
 "args": [  ],
 "method": "roll_animation_finished"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -1034,6 +1082,18 @@ tracks/3/keys = {
 "method": "roll_animation_finished"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=37]
 resource_name = "roll_up"
@@ -1087,6 +1147,18 @@ tracks/3/keys = {
 "args": [  ],
 "method": "roll_animation_finished"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -1451,7 +1523,6 @@ collision_mask = 8
 shape = SubResource( 52 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 75 )]
-visible = false
 collision_layer = 4
 collision_mask = 0
 
