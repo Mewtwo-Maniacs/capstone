@@ -84,3 +84,6 @@ func _on_PlayerStats_no_health():
 
 func _on_PlayerStats_update_health():
 	label.text = "HP: " + str(stats.health)
+
+func _on_SwordHitbox_area_entered(area):
+	pass # Replace with function body.

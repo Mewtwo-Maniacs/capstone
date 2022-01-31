@@ -119,16 +119,16 @@ _global_script_class_icons={
 config/name="Capstone"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
-<<<<<<<HEAD[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [autoload]
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
-Stats="*res://scripts/Stats.gd"
+EnemyStats="*res://scripts/EnemyStats.gd"
+PlayerStats="*res://scripts/Player/playerStats.gd"
 
 [display]
 
-window/size/width=640   
+window/size/width=640
 window/size/height=360
 window/size/test_width=1280
 window/size/test_height=720

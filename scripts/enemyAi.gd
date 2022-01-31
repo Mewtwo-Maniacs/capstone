@@ -15,17 +15,18 @@ enum {
 }
 
 var state = IDLE
+var playerStats = PlayerStats
 
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var sprite = $AnimatedSprite
 onready var wanderController = $WanderController
 onready var softCollision = $SoftCollision
-onready var stats = $Stats
+onready var enemyStats = $Stats
 onready var label = $HealthUI/Label
-
 
 func _ready():
 	state = pick_new_state([IDLE, WANDER])
+	label.text = "HP: " + str(enemyStats.health)
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -79,17 +80,17 @@ func pick_new_state(stateList):
 	stateList.shuffle()
 	return stateList.pop_front()
 
-func _on_HurtBox_area_entered(area):
+func _on_HurtBox_area_entered(_area):
 #	var knockback_vector = area.knockback_vector
+	enemyStats.health -= playerStats.attackPower
+	move_and_slide(-velocity * 50)
 
-# UNCOMMENT and delete other line once player is working
-#	stats.health -= area.damage
-	stats.health -= 1
-	move_and_slide(-velocity * 70)
-
+func _on_HitBox_area_entered(_area):
+# 	Add hiteffect here
+	pass
 
 func _on_Stats_no_health():
 	queue_free()
 
 func _on_Stats_update_health():
-	label.text = "HP: " + str(stats.health)
+	label.text = "HP: " + str(enemyStats.health)

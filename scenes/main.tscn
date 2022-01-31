@@ -17,10 +17,6 @@ position = Vector2( 2, 6 )
 current = true
 
 [node name="StatWindow" parent="Player" instance=ExtResource( 3 )]
-margin_left = 129.0
-margin_top = -177.0
-margin_right = 462.0
-margin_bottom = 188.0
 
 [node name="BigDemon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 259, 179 )
@@ -31,5 +27,6 @@ frame = 3
 [editable path="BigDemon"]
 [editable path="BigDemon/PlayerDetectionZone"]
 [editable path="BigDemon/HurtBox"]
+[editable path="BigDemon/HitBox"]
 [editable path="BigDemon/SoftCollision"]
 [editable path="BigDemon/HealthUI"]
