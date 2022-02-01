@@ -15,7 +15,7 @@
 [ext_resource path="res://scenes/Enemies/Wander.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Stats.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/UI/HealthUI.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/enemyAi.gd" type="Script" id=17]
+[ext_resource path="res://scripts/Enemy/enemyAi.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -56,6 +56,7 @@ script = ExtResource( 17 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
