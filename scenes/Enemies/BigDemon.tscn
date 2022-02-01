@@ -15,19 +15,19 @@
 [ext_resource path="res://scenes/Enemies/Wander.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Stats.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/UI/HealthUI.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/enemyAi.gd" type="Script" id=17]
+[ext_resource path="res://scripts/Enemy/enemyAi.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Run",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -56,7 +56,7 @@ script = ExtResource( 17 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -110,7 +110,6 @@ align = 1
 valign = 1
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
-[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="update_health" from="Stats" to="." method="_on_Stats_update_health"]
 
