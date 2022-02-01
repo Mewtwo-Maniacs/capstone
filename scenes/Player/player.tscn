@@ -1559,7 +1559,9 @@ position = Vector2( 388, 209 )
 collision_layer = 2
 script = ExtResource( 2 )
 
-[node name="CollisionBox2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionBox2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -3, 9 )
 shape = SubResource( 1 )
 

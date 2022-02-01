@@ -29,11 +29,13 @@ func _on_Login_button_up():
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
 	userinfo = auth_info
+	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
 
 
 func _on_FirebaseAuth_login_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+	$Errors.text = "INVALID EMAIL/PASSWORD"
 
 
 func _on_Register_button_up():
@@ -50,7 +52,7 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 func _on_FirebaseAuth_signup_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
-
+	$Errors.text = "EMAIL ALREADY TAKEN"
 
 func _on_ForgotPassword_button_up():
 	var email = $UserName.text
