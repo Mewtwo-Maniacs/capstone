@@ -21,9 +21,6 @@ current = true
 [node name="BigDemon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 259, 179 )
 
-[node name="AnimatedSprite" parent="BigDemon" index="0"]
-frame = 3
-
 [editable path="BigDemon"]
 [editable path="BigDemon/PlayerDetectionZone"]
 [editable path="BigDemon/HurtBox"]
