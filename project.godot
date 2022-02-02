@@ -126,7 +126,6 @@ config/icon="res://icon.png"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 EnemyStats="*res://scripts/Enemy/EnemyStats.gd"
 PlayerStats="*res://scripts/Player/playerStats.gd"
-Stats="*res://scripts/Stats.gd"
 
 [display]
 
