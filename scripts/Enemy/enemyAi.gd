@@ -23,6 +23,7 @@ onready var wanderController = $WanderController
 onready var softCollision = $SoftCollision
 onready var enemyStats = $Stats
 onready var label = $HealthUI/Label
+onready var enemyHurtBox = $HurtBox
 
 func _ready():
 	state = pick_new_state([IDLE, WANDER])
@@ -80,17 +81,16 @@ func pick_new_state(stateList):
 	stateList.shuffle()
 	return stateList.pop_front()
 
-func _on_HurtBox_area_entered(_area):
-#	var knockback_vector = area.knockback_vector
+func _on_HurtBox_area_entered(area):
+	enemyHurtBox.hit_effect()
 	enemyStats.health -= playerStats.attackPower
 	move_and_slide(-velocity * 50)
-
-func _on_HitBox_area_entered(_area):
-# 	Add hiteffect here
-	pass
-
+	
 func _on_Stats_no_health():
 	queue_free()
 
 func _on_Stats_update_health():
 	label.text = "HP: " + str(enemyStats.health)
+
+func _on_HitBox_overlapping():
+	pass # Replace with function body.

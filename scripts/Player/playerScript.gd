@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
+onready var playerHurtBox = $HurtBox
 export(int) var speed = 115
 
 enum {
@@ -12,6 +13,7 @@ enum {
 }
 
 func _ready():
+	label.text = "HP: " + str(stats.health)
 	$AnimationTree.active = true
 
 var state = MOVE
@@ -75,7 +77,8 @@ func _physics_process(delta):
 
 
 func _on_HurtBox_area_entered(area):
-	stats.health -= 1
+	stats.health -= EnemyStats.MELEE_ATTACK
+	playerHurtBox.is_overlapping(0.5)
 	if stats.health <= 0:
 		state = DEATH
 
@@ -87,7 +90,6 @@ func _on_PlayerStats_update_health():
 
 func _on_SwordHitbox_area_entered(area):
 	pass # Replace with function body.
-
 
 func _on_Area2D_area_entered(area):
 	get_tree().change_scene("res://scenes/main.tscn")
