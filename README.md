@@ -1,7 +1,5 @@
 # Attack On Fullstack
 
-***
-
 _Deployed Link: https://keithdrucker.itch.io/attackonfullstack_
 
 | `Developers` | `Github Profile` |
