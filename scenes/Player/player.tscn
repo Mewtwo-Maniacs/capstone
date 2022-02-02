@@ -1524,7 +1524,6 @@ collision_mask = 8
 shape = SubResource( 52 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 75 )]
-visible = false
 collision_layer = 4
 collision_mask = 0
 
@@ -1545,6 +1544,7 @@ align = 1
 valign = 1
 
 [node name="InteractivityArea" parent="." instance=ExtResource( 78 )]
+visible = false
 
 [connection signal="area_entered" from="HitboxPivot/SwordHitbox" to="." method="_on_SwordHitbox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
