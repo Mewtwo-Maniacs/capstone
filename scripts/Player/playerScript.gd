@@ -93,3 +93,6 @@ func _on_SwordHitbox_area_entered(area):
 
 func _on_Area2D_area_entered(area):
 	get_tree().change_scene("res://scenes/main.tscn")
+
+func _on_Area2D2_area_entered(area):
+	get_tree().change_scene("res://scenes/main.tscn")
