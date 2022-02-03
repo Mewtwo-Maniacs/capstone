@@ -91,8 +91,9 @@ func _on_PlayerStats_update_health():
 func _on_SwordHitbox_area_entered(area):
 	pass # Replace with function body.
 
+#TopTeleport
 func _on_Area2D_area_entered(area):
 	get_tree().change_scene("res://scenes/main.tscn")
-
+#BottomTeleport
 func _on_Area2D2_area_entered(area):
 	get_tree().change_scene("res://scenes/main.tscn")
