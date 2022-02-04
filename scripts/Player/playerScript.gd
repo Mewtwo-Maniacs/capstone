@@ -4,7 +4,6 @@ onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
 export(int) var speed = 115
-
 enum {
 	MOVE,
 	ROLL,
@@ -75,18 +74,30 @@ func _physics_process(delta):
 		DEATH:
 			death_state()
 
-
 func _on_HurtBox_area_entered(area):
 	stats.health -= EnemyStats.MELEE_ATTACK
 	playerHurtBox.is_overlapping(0.5)
-	if stats.health <= 0:
+	if stats.health == 0:
+		$Node/Death.play()
 		state = DEATH
+		stats.health -= 1
+		
 
 func _on_PlayerStats_no_health():
 	label.text = "You Have Died!"
 
+var hurtCount = 0
 func _on_PlayerStats_update_health():
+	hurtCount += 1
+	if(hurtCount % 2 == 0):
+		$Node/Damaged2.play()
+	elif(hurtCount % 3 == 0):
+		$Node/Damaged3.play()
+	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
+	
+var SoundArray = [$Node/Damaged, $Node/Damaged2, $Node/Damaged3]
+
 
 func _on_SwordHitbox_area_entered(area):
 	pass # Replace with function body.
