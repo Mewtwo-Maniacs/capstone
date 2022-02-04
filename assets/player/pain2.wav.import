@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pain2.wav-79961c03b784b86c18998ed6191c5abc.sample"
+
+[deps]
+
+source_file="res://assets/player/pain2.wav"
+dest_files=[ "res://.import/pain2.wav-79961c03b784b86c18998ed6191c5abc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

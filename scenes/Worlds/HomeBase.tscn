@@ -14,19 +14,19 @@ tile_data = PoolIntArray( -131039, 1073741829, 0, -131038, 1073741829, 0, -13103
 
 [node name="MainDoor" type="Area2D" parent="."]
 
-[node name="teleZone" type="CollisionShape2D" parent="MainDoor"]
+[node name="mainTele" type="CollisionShape2D" parent="MainDoor"]
 position = Vector2( 736, -57 )
 shape = SubResource( 1 )
 
 [node name="TopTele" type="Area2D" parent="."]
 
-[node name="teleZone" type="CollisionShape2D" parent="TopTele"]
+[node name="topTele" type="CollisionShape2D" parent="TopTele"]
 position = Vector2( 565, 104 )
 shape = SubResource( 1 )
 
 [node name="BotTele" type="Area2D" parent="."]
 
-[node name="teleZone" type="CollisionShape2D" parent="BotTele"]
+[node name="botTele" type="CollisionShape2D" parent="BotTele"]
 position = Vector2( 563.5, 248 )
 shape = SubResource( 1 )
 
@@ -89,7 +89,8 @@ position = Vector2( 668, 270 )
 current = true
 
 [connection signal="area_entered" from="MainDoor" to="YSort/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="MainDoor" to="YSort/Player" method="_on_MainDoor_area_entered"]
 [connection signal="area_entered" from="TopTele" to="YSort/Player" method="_on_Area2D2_area_entered"]
-[connection signal="area_entered" from="TopTele" to="YSort/Player" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="BotTele" to="YSort/Player" method="_on_Area2D2_area_entered"]
+[connection signal="area_entered" from="TopTele" to="YSort/Player" method="_on_TopTele_area_entered"]
+[connection signal="area_entered" from="BotTele" to="YSort/Player" method="_on_BotTele_area_entered"]
 [connection signal="area_entered" from="BotTele" to="YSort/Player" method="_on_Area2D_area_entered"]
