@@ -27,8 +27,8 @@ func _on_Login_button_up():
 	pass # Replace with function body.
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
-	print("Success!")
 	userinfo = auth_info
+	print("Success!", str(userinfo))
 	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
 
 
