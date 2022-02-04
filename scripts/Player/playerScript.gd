@@ -95,8 +95,6 @@ func _on_PlayerStats_update_health():
 		$Node/Damaged3.play()
 	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
-	
-var SoundArray = [$Node/Damaged, $Node/Damaged2, $Node/Damaged3]
 
 
 func _on_SwordHitbox_area_entered(area):
