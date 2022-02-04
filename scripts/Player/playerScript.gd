@@ -52,7 +52,7 @@ func attack_state():
 	$AnimationTree.get("parameters/playback").travel("Attack")
 
 func roll_state():
-	move_and_slide(velocity * 200)
+	move_and_slide(velocity * 180)
 	$AnimationTree.get("parameters/playback").travel("Roll")
 
 func death_state():

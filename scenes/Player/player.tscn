@@ -197,18 +197,6 @@ tracks/8/keys = {
 "update": 0,
 "values": [ false ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("Node/Attack:autoplay")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_down"
@@ -1766,7 +1754,7 @@ position = Vector2( -3, 7 )
 shape = SubResource( 55 )
 
 [node name="PlayerStats" parent="." instance=ExtResource( 76 )]
-MAX_HEALTH = 2
+MAX_HEALTH = 15
 
 [node name="HealthUI" parent="." instance=ExtResource( 77 )]
 
@@ -1785,15 +1773,14 @@ visible = false
 
 [node name="Attack" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 79 )
-autoplay = true
 
 [node name="Damaged" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 82 )
 
-[node name="Damaged2" type="AudioStreamPlayer2D" parent="Node"]
+[node name="Damaged2" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 80 )
 
-[node name="Damaged3" type="AudioStreamPlayer2D" parent="Node"]
+[node name="Damaged3" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 81 )
 
 [node name="Death" type="AudioStreamPlayer" parent="Node"]
