@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://scenes/Worlds/NPC.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Worlds/new_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/characters/yeeet.PNG" type="Texture" id=4]
+[ext_resource path="res://assets/characters/unnamed.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5, 6 )
+
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="HomeFloor" type="TileMap"]
 tile_set = ExtResource( 3 )
@@ -88,9 +93,26 @@ position = Vector2( 668, 270 )
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
 
-[connection signal="area_entered" from="MainDoor" to="YSort/Player" method="_on_Area2D_area_entered"]
+[node name="NPC" type="Area2D" parent="YSort"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="YSort/NPC"]
+position = Vector2( 571, 174 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC"]
+position = Vector2( 571, 174 )
+shape = SubResource( 2 )
+
+[node name="QuestionMark" type="Sprite" parent="YSort/NPC"]
+position = Vector2( 571, 153.875 )
+scale = Vector2( 0.00195311, 0.00573732 )
+texture = ExtResource( 5 )
+
 [connection signal="area_entered" from="MainDoor" to="YSort/Player" method="_on_MainDoor_area_entered"]
-[connection signal="area_entered" from="TopTele" to="YSort/Player" method="_on_Area2D2_area_entered"]
+[connection signal="area_entered" from="MainDoor" to="YSort/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="TopTele" to="YSort/Player" method="_on_TopTele_area_entered"]
-[connection signal="area_entered" from="BotTele" to="YSort/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="TopTele" to="YSort/Player" method="_on_Area2D2_area_entered"]
 [connection signal="area_entered" from="BotTele" to="YSort/Player" method="_on_BotTele_area_entered"]
+[connection signal="area_entered" from="BotTele" to="YSort/Player" method="_on_Area2D_area_entered"]

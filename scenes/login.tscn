@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/LoginController.gd" type="Script" id=1]
 
-
 [node name="Control" type="Control"]
 margin_left = 173.0
 margin_top = -135.0
