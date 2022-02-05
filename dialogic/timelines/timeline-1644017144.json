@@ -1,9 +1,23 @@
 {
 	"events": [
 		{
+			"action": "join",
+			"character": "character-1644017111.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
 			"character": "character-1644017111.json",
 			"event_id": "dialogic_001",
-			"portrait": "",
+			"portrait": "Default",
 			"text": "Finally you are here! Mac has been taken over by AI and got sucked into the computers!"
 		},
 		{
