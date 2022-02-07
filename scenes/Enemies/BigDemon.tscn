@@ -51,6 +51,7 @@ radius = 15.0333
 [node name="BigDemon" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 17 )
+MAX_SPEED = 100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )

@@ -34,7 +34,7 @@ font_data = ExtResource( 4 )
 font_data = ExtResource( 4 )
 
 [node name="TitleScreen" type="Control"]
-pause_mode = 1
+pause_mode = 2
 process_priority = -1
 margin_right = 640.0
 margin_bottom = 360.0
