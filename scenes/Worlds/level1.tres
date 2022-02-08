@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=31 format=2]
+[gd_resource type="TileSet" load_steps=32 format=2]
 
 [ext_resource path="res://assets/FutureFantasy/100/master_tiles.png" type="Texture" id=1]
 
@@ -88,6 +88,9 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 7.06042, 42.6875, 6.79126, 9.84802, 42.1879, 9.84802, 42.0533, 43.2258, 35.8623, 43.2258, 35.5931, 16.1736, 13.6553, 16.4429, 13.5207, 42.822 )
 
 [resource]
 0/name = "master_tiles.png 0"
@@ -1035,3 +1038,24 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 52/z_index = 0
+53/name = "master_tiles.png 53"
+53/texture = ExtResource( 1 )
+53/tex_offset = Vector2( 0, 0 )
+53/modulate = Color( 1, 1, 1, 1 )
+53/region = Rect2( 912, 1008, 48, 48 )
+53/tile_mode = 0
+53/occluder_offset = Vector2( 0, 0 )
+53/navigation_offset = Vector2( 0, 0 )
+53/shape_offset = Vector2( 0, 0 )
+53/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+53/shape = SubResource( 30 )
+53/shape_one_way = false
+53/shape_one_way_margin = 1.0
+53/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+53/z_index = 0
