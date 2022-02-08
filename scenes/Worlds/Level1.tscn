@@ -45,7 +45,7 @@ position = Vector2( 263.5, 528.5 )
 shape = SubResource( 2 )
 
 [node name="endSign2" type="Label" parent="EndSign"]
-margin_left = 212.0
+margin_left = 227.0
 margin_top = 523.0
 margin_right = 252.0
 margin_bottom = 537.0

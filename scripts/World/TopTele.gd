@@ -8,7 +8,7 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("ui_yeet") and active:
-		get_tree().change_scene("res://scenes/Worlds/Level1.tscn")
+		get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
 		print ("E was pressed")
 
 func _on_TopTele_body_entered(body):

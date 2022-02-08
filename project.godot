@@ -155,7 +155,7 @@ _global_script_class_icons={
 config/name="Capstone"
 run/main_scene="res://scenes/TestMain.tscn"
 config/icon="res://icon.png"
-[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+<<<<<<<HEAD[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [autoload]
 
