@@ -1,16 +1,36 @@
-extends Node
+extends RigidBody2D
 
+var roomWidth = 1
+var roomHeight
+var roomCount
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var TREASURE_ROOM = {
+	roomWidth: 1,
+	roomHeight: 1,
+	roomCount: rand_range(2, 4)
+}
 
+var BOSS_ROOM = {
+	roomWidth: 1,
+	roomHeight: 1,
+	roomCount: 1,
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var MOB_ROOM = {
+	roomWidth: 1,
+	roomHeight: 1,
+	roomCount: rand_range(4, 6)
+}
 
+var room_types = [
+	TREASURE_ROOM,
+	BOSS_ROOM,
+	MOB_ROOM
+]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func make_room(_pos, _size, _type):
+	position = _pos
+	var room = RectangleShape2D.new()
+	room.extents = _size
+	$CollisionShape2D.shape = room
+
