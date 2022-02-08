@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/Title Screen/Title Screen.png" type="Texture" id=1]
+[ext_resource path="res://assets/Title Screen/Clouds.png" type="Texture" id=2]
+[ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Title Screen.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/TitleScreen.gd" type="Script" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends ParallaxBackground
+
+
+export (float) var scollingSpeed = 10
+
+func _process(delta):
+	scroll_offset.x += scollingSpeed * delta
+"
+
+[sub_resource type="GDScript" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 4 )
+
+[node name="TitleScreen" type="Control"]
+pause_mode = 2
+process_priority = -1
+margin_right = 640.0
+margin_bottom = 360.0
+rect_scale = Vector2( 0.998554, 1.00501 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clouds" type="ParallaxBackground" parent="."]
+layer = -101
+script = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Clouds"]
+margin_right = 720.0
+margin_bottom = 400.0
+rect_rotation = -0.158899
+color = Color( 0.439216, 0.611765, 0.913725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Clouds"]
+
+[node name="Sprite" type="Sprite" parent="Clouds/ParallaxLayer"]
+position = Vector2( 0, 180 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Foreground" type="TextureRect" parent="."]
+light_mask = 4
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainMenu" type="VBoxContainer" parent="."]
+margin_left = 65.0
+margin_top = 203.0
+margin_right = 220.0
+margin_bottom = 303.0
+alignment = 1
+script = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="mainMenu"]
+margin_right = 155.0
+margin_bottom = 22.0
+focus_neighbour_top = NodePath("../Quit")
+custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+flat = true
+
+[node name="Login" type="Button" parent="mainMenu"]
+margin_top = 26.0
+margin_right = 155.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( -347, -157 )
+custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Login"
+flat = true
+
+[node name="Options" type="Button" parent="mainMenu"]
+margin_top = 52.0
+margin_right = 155.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( -347, -157 )
+custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Options"
+flat = true
+
+[node name="Quit" type="Button" parent="mainMenu"]
+margin_top = 78.0
+margin_right = 155.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( -347, -157 )
+focus_neighbour_bottom = NodePath("../Play")
+custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Quit"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -30.975
+autoplay = true
+
+[node name="Names" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 345.0
+margin_right = 406.0
+margin_bottom = 359.0
+custom_fonts/font = SubResource( 7 )
+text = "Created By: Sung Kim, Jason Bell, Keith Drucker, & Gulam Islam"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="mainMenu/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="mainMenu/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="mainMenu/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="mainMenu/Quit" to="." method="_on_Quit_pressed"]
