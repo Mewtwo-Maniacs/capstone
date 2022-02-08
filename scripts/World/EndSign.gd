@@ -20,8 +20,10 @@ func unpause(timeline_name):
 
 func _on_EndSign_body_entered(body):
 	if body.name == 'Player':
+		$endSign2.text = "'E'"
 		active = true
 
 func _on_EndSign_body_exited(body):
 	if body.name == 'Player':
+		$endSign2.text = ""
 		active = false
