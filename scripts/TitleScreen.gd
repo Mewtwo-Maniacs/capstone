@@ -11,7 +11,7 @@ func _ready():
 	$mainMenu/Play.grab_focus()
 	
 func _on_Play_pressed():
-	get_tree().change_scene("res://scenes/main.tscn")
+	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
 func _on_Login_pressed():
 	get_tree().change_scene("res://scenes/login.tscn")
 func _on_Options_pressed():

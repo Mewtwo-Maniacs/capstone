@@ -26,4 +26,4 @@ func _on_Quit_pressed():
 
 
 func _on_TitleScreen_pressed():
-	get_tree().change_scene_to(load("res://scenes/TitleScreen.tscn"))
+	get_tree().change_scene_to(load("res://scenes/Worlds/HomeBase.tscn"))

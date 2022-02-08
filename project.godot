@@ -159,7 +159,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Capstone"
-run/main_scene="res://scenes/TestMain.tscn"
+run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

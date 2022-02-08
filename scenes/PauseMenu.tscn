@@ -40,7 +40,7 @@ __meta__ = {
 }
 
 [node name="Resume" type="Button" parent="insidePauseMenu"]
-margin_right = 142.0
+margin_right = 168.0
 margin_bottom = 31.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.431373, 0.431373, 0.431373, 1 )
@@ -52,7 +52,7 @@ __meta__ = {
 
 [node name="Options" type="Button" parent="insidePauseMenu"]
 margin_top = 37.0
-margin_right = 142.0
+margin_right = 168.0
 margin_bottom = 68.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.431373, 0.431373, 0.431373, 1 )
@@ -62,21 +62,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleScreen" type="Button" parent="insidePauseMenu"]
+[node name="Base" type="Button" parent="insidePauseMenu"]
 margin_top = 74.0
-margin_right = 142.0
+margin_right = 168.0
 margin_bottom = 105.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.431373, 0.431373, 0.431373, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Title Screen"
+text = "Return to Base"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="insidePauseMenu"]
 margin_top = 111.0
-margin_right = 142.0
+margin_right = 168.0
 margin_bottom = 142.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.431373, 0.431373, 0.431373, 1 )
@@ -116,5 +116,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="insidePauseMenu/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="insidePauseMenu/TitleScreen" to="." method="_on_TitleScreen_pressed"]
+[connection signal="pressed" from="insidePauseMenu/Base" to="." method="_on_TitleScreen_pressed"]
 [connection signal="pressed" from="insidePauseMenu/Quit" to="." method="_on_Quit_pressed"]
