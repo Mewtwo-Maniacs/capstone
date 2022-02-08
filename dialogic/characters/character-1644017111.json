@@ -1,0 +1,20 @@
+{
+	"color": "#ffd8a837",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1644017111.json",
+	"mirror_portraits": false,
+	"name": "Keith",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 15,
+	"offset_y": -125,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/portraits/image.png"
+		}
+	],
+	"scale": 1
+}
