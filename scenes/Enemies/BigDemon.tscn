@@ -57,6 +57,7 @@ MAX_SPEED = 100
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -80,6 +81,7 @@ position = Vector2( 0, 9 )
 shape = SubResource( 3 )
 
 [node name="HitBox" parent="." instance=ExtResource( 11 )]
+visible = false
 collision_layer = 0
 collision_mask = 4
 
@@ -88,10 +90,9 @@ position = Vector2( 0, 9 )
 shape = SubResource( 6 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 12 )]
-visible = false
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 17 )
 shape = SubResource( 5 )
 
 [node name="WanderController" parent="." instance=ExtResource( 13 )]
