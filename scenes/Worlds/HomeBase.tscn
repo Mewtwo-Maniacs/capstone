@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/World/BotTele.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scripts/World/BotSign.gd" type="Script" id=5]
 [ext_resource path="res://scenes/NPCs/OmarNpc.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/World/TopTele.gd" type="Script" id=7]
+[ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Ending.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 12 )
@@ -155,5 +156,10 @@ current = true
 
 [node name="OmarNpc" parent="." instance=ExtResource( 6 )]
 position = Vector2( 640, -14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -30.0
+autoplay = true
 
 [connection signal="area_entered" from="MainDoor" to="Player" method="_on_MainDoor_area_entered"]
