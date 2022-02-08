@@ -158,7 +158,6 @@ func find_mst(nodes):
 
 func make_map():
 	dungeonBase.clear()
-	var corridors = []
 	for room in $AllRooms.get_children():
 		var s = ((room.size*1.5) / tileSize ).floor()
 		var pos = dungeonBase.world_to_map(room.position)
@@ -167,35 +166,10 @@ func make_map():
 			for y in range(2, (s.y * 2) - 2):
 				dungeonBase.set_cell(ul.x + x, ul.y + y, 13, false, false, false, Vector2(pos))
 				
-		var p = path.get_closest_point(Vector3(room.position.x, room.position.y, 0))
-		for conn in path.get_point_connections(p):
-			if not conn in corridors:
-				var start = dungeonBase.world_to_map(Vector2(path.get_point_position(p).x, path.get_point_position(p).y))
-				var end = dungeonBase.world_to_map(Vector2(path.get_point_position(conn).x, path.get_point_position(conn).y))									
-				make_hallway(start, end)
-		corridors.append(p)
 	dungeonBase.update_bitmask_region()
 	dungeonBase.update_dirty_quadrants()
 	disable_room_collision()
 	
-func make_hallway(pos1, pos2):
-	var x_diff = sign(pos2.x - pos1.x)
-	var y_diff = sign(pos2.y - pos1.y)
-	if x_diff == 0: x_diff = pow(-1.0, randi() % 2)
-	if y_diff == 0: y_diff = pow(-1.0, randi() % 2)
-	# choose either x/y or y/x
-	var x_y = pos1
-	var y_x = pos2
-	if (randi() % 2) > 0:
-		x_y = pos2
-		y_x = pos1
-	for x in range(pos1.x, pos2.x, x_diff):
-		dungeonBase.set_cell(x, x_y.y, 0)
-		dungeonBase.set_cell(x, x_y.y + y_diff, 0)  # widen the corridor
-	for y in range(pos1.y, pos2.y, y_diff):
-		dungeonBase.set_cell(y_x.x, y, 0)
-		dungeonBase.set_cell(y_x.x + x_diff, y, 0)
-
 func save_seed():
 	pass
 	
