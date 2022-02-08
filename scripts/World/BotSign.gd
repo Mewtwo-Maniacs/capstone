@@ -20,8 +20,10 @@ func unpause(timeline_name):
 
 func _on_BotSign_body_entered(body):
 	if body.name == 'Player':
+		$botSign.text = "'E'"
 		active = true
 
 func _on_BotSign_body_exited(body):
 	if body.name == 'Player':
+		$botSign	.text = ""
 		active = false
