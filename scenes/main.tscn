@@ -22,7 +22,7 @@ current = true
 position = Vector2( 259, 179 )
 
 [node name="AnimatedSprite" parent="BigDemon" index="0"]
-frame = 3
+frame = 2
 
 [editable path="BigDemon"]
 [editable path="BigDemon/PlayerDetectionZone"]
