@@ -25,7 +25,8 @@ current = true
 position = Vector2( 259, 179 )
 
 [node name="AnimatedSprite" parent="BigDemon" index="0"]
-frame = 1
+modulate = Color( 0.0784314, 0, 1, 1 )
+frame = 2
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 pause_mode = 2
