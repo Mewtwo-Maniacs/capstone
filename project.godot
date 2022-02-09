@@ -161,6 +161,7 @@ _global_script_class_icons={
 config/name="Capstone"
 run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
+<<<<<<<HEAD[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [autoload]
 
@@ -199,11 +200,8 @@ environment_variables/cacheLocation="user://.firebase_cache"
 
 [gdnative]
 
-<<<<<<< HEAD
-singletons=[  ]
-=======
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
->>>>>>> 57b2df8c092a908c2bd414a8805548f7aa54fda1
+<<<<<<<HEADsingletons=[  ]
 
 [importer_defaults]
 

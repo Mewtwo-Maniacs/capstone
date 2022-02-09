@@ -173,30 +173,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [ false ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Node/Attack:stream")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 79 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Node/Attack:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_down"
@@ -274,30 +250,6 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Node/Attack:stream")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 79 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Node/Attack:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -377,30 +329,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Node/Attack:stream")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 79 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Node/Attack:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=27]
 resource_name = "attack_right"
@@ -479,30 +407,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Node/Attack:stream")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 79 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Node/Attack:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=29]
 resource_name = "attack_up"
@@ -580,30 +484,6 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Node/Attack:stream")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 79 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Node/Attack:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -1668,7 +1548,7 @@ states/Walk/node = SubResource( 20 )
 states/Walk/position = Vector2( 350.5, 73.25 )
 transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "Attack", SubResource( 43 ), "Attack", "Idle", SubResource( 44 ), "Roll", "Idle", SubResource( 50 ), "Idle", "Roll", SubResource( 51 ), "Idle", "Death", SubResource( 54 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -254, -17.0628 )
+graph_offset = Vector2( -254, -58 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=22]
 
@@ -1775,15 +1655,19 @@ stream = ExtResource( 79 )
 
 [node name="Damaged" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 82 )
+volume_db = -38.0
 
 [node name="Damaged2" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 80 )
+volume_db = -38.0
 
 [node name="Damaged3" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 81 )
+volume_db = -38.0
 
 [node name="Death" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 83 )
+volume_db = -38.0
 
 [node name="Control" type="Control" parent="."]
 margin_left = -65.0

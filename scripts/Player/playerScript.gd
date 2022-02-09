@@ -45,6 +45,7 @@ func move_state():
 	move_and_slide(velocity * speed)
 	
 	if Input.is_action_just_pressed("attack"):
+		$Node/Attack.play()
 		state = ATTACK
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL

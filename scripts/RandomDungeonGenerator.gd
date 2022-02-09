@@ -240,8 +240,8 @@ func spawn_enemies():
 			get_tree().get_current_scene().add_child(currMobEnemy)
 			currMobEnemy.position.x = currMobRoom.position.x + randi() % 20  
 			currMobEnemy.position.y = currMobRoom.position.y + randi() % 20
-			currMobEnemy.scale.x = 0.75
-			currMobEnemy.scale.y = 0.75
+			currMobEnemy.scale.x = 0.50
+			currMobEnemy.scale.y = 0.50
 		
 func save_seed():
 	pass

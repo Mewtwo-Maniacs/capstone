@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Worlds/DungeonGenRoomAutotiles.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/RandomDungeonGenerator.gd" type="Script" id=2]
+[ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Level 2.wav" type="AudioStream" id=3]
 
 [node name="Dungeon" type="YSort"]
 script = ExtResource( 2 )
@@ -20,3 +21,8 @@ position = Vector2( 316, 153 )
 zoom = Vector2( 4, 4 )
 
 [node name="AllRooms" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -35.0
+autoplay = true
