@@ -1,25 +1,34 @@
 extends Node2D
 
+export(int) var MobRoomEnemyCount = 5
+export(int) var BossRoomEnemyCount = 5
+
 var Rooms = preload("res://scenes/RDG_Room.tscn")
 var roomTiles = preload("res://scenes/Worlds/DungeonGenRoomAutotiles.tres")
 var player = preload("res://scenes/Player/player.tscn")
+var enemies = preload("res://scenes/Enemies/BigDemon.tscn")
 onready var dungeonBase = $Base
 var instancedPlayer
+var instancedEnemies = []
 
 #var roomList = ["TREASURE_ROOM", "BOSS_ROOM", "MOB_ROOM", "SPAWN_ROOM"]
-#var outerBorder = Rect2(1, 1, 180, 108)
+#### Don't change unless you know exactly what you're doing otherwise room generation will become funky
 var roomWidth = 4
 var roomHeight = 10
 var tileSize = 16
 var roomScaling = 1
+var dungeonCreationOrigin = Vector2(350, 200)
+#####
+
 var roomPositions = []
 var shuffledRooms = []
-var dungeonCreationOrigin = Vector2(350, 200)
 var roomCount = 10
 var path
 var dungeonSeed
 var spawnRoom
-var endRoom
+var bossRoom
+var mobRoom = []
+var treasureRoom = []
 
 var room_types = {
 	"TREASURE_ROOM": {
@@ -48,8 +57,9 @@ func _ready():
 	randomize()
 	make_rooms()
 
-func _process(_delta):
-	update()
+#Check FPS when debugging
+#func _process(_delta):
+#	print(Performance.get_monitor(Performance.TIME_FPS))
 
 func make_rooms(): 
 #	Get an array of all the total number of rooms in a single array
@@ -60,10 +70,18 @@ func make_rooms():
 			var room = shuffledRooms[randomNumber(0, shuffledRooms.size() - 1)]
 			var pos = dungeonCreationOrigin
 			var roomInstance = Rooms.instance()
+			
+			#Keep track of the positions of each of the rooms (needed later for instancing specific mobs etc.)
 			if room == "SPAWN_ROOM":
 				spawnRoom = roomInstance
 			elif room == "BOSS_ROOM":
-				endRoom = roomInstance
+				bossRoom = roomInstance
+			elif room == "MOB_ROOM": 
+				mobRoom.append(roomInstance)
+			elif room == "TREASURE_ROOM":
+				treasureRoom.append(roomInstance)
+				
+			
 			var w = room_types[room]["roomWidth"] + randi() % (room_types[room]["roomHeight"] - room_types[room]["roomWidth"])
 			var h = room_types[room]["roomWidth"] + randi() % (room_types[room]["roomHeight"] - room_types[room]["roomWidth"])
 			roomInstance.make_room(pos, Vector2(w * roomScaling, h * roomScaling) * tileSize)
@@ -86,9 +104,9 @@ func randomNumber(min_range, max_range):
 func shuffle_rooms(list):
 	var combinedArr = []
 	for item in list: 
-		var roomCount = list[item]["roomCount"]
+		var roomCounter = list[item]["roomCount"]
 		var listItem = item
-		for j in roomCount:
+		for j in roomCounter:
 			combinedArr.push_back(listItem)
 
 	return combinedArr
@@ -96,32 +114,35 @@ func shuffle_rooms(list):
 #Scales down the rooms to create spaces between them for hallways
 func resize_rooms():
 	for child in $AllRooms.get_children():
-
 #		Scale the child down by 1.5
 		child.size = child.size / 1.5
-
 #		Turn the child node into a static body to prevent any further moving
 		child.mode = RigidBody2D.MODE_STATIC
 		
 		if child.name == spawnRoom.name:
 			spawnRoom = child
-		
+		elif child.name == bossRoom.name: 
+			bossRoom = child
+		elif child.name == mobRoom[mobRoom.find(child)].name:
+			mobRoom[mobRoom.find(child)] = child
+		elif child.name == treasureRoom[treasureRoom.find(child)].name:
+			treasureRoom[treasureRoom.find(child)] = child
 		roomPositions.append(Vector3(child.position.x, child.position.y, 0))
 	
 	path = find_mst(roomPositions)
 	yield(get_tree().create_timer(1), "timeout")
 	make_map()
-	
+
 func find_mst(nodes):
-	var path = AStar.new()
-	path.add_point(path.get_available_point_id(), nodes.pop_front())
+	var aStarPath = AStar.new()
+	aStarPath.add_point(aStarPath.get_available_point_id(), nodes.pop_front())
 	for _i in range(nodes.size()):
 		var min_dist = INF
 		var min_pos = null
 		var point = null
 		
-		for point1 in path.get_points():
-			point1 = path.get_point_position(point1)
+		for point1 in aStarPath.get_points():
+			point1 = aStarPath.get_point_position(point1)
 			for point2 in nodes:
 				# If the node is closer, make it the closest
 				if point1.distance_to(point2) < min_dist:
@@ -129,12 +150,12 @@ func find_mst(nodes):
 					min_pos = point2
 					point = point1
 					
-		var n = path.get_available_point_id()
-		path.add_point(n, min_pos)
-		path.connect_points(path.get_closest_point(point), n)
+		var n = aStarPath.get_available_point_id()
+		aStarPath.add_point(n, min_pos)
+		aStarPath.connect_points(aStarPath.get_closest_point(point), n)
 		# Remove the node from the array so we don't visit again
 		nodes.erase(min_pos)
-	return path
+	return aStarPath
 
 func make_map():
 	dungeonBase.clear()
@@ -160,7 +181,7 @@ func make_map():
 	disable_room_collision()
 	yield(get_tree().create_timer(0.2), "timeout")
 	spawn_player()
-	
+	spawn_enemies()
 
 func make_hallway(pos1, pos2):
 	var x_diff = sign(pos2.x - pos1.x)
@@ -197,24 +218,50 @@ func spawn_player():
 	playerCamera.current = true
 	get_tree().get_current_scene().add_child(instancedPlayer)
 	instancedPlayer.position = spawnRoom.position
-	instancedPlayer.scale.x = 0.75
-	instancedPlayer.scale.y = 0.75
+	
+	#Uncomment to zoom out for debugging" 
+#	playerCamera.zoom.x = 4
+#	playerCamera.zoom.y = 4
 
 func spawn_enemies():
-	pass
-
+	for i in range(3):
+		var currBossEnemy = enemies.instance()
+		instancedEnemies.append(currBossEnemy)
+		get_tree().get_current_scene().add_child(currBossEnemy)
+		currBossEnemy.position.x = bossRoom.position.x + randi() % 20  
+		currBossEnemy.position.y = bossRoom.position.y + randi() % 20
+		currBossEnemy.scale.x = 2
+		currBossEnemy.scale.y = 2
+	
+	for currMobRoom in mobRoom:
+		for i in MobRoomEnemyCount:
+			var currMobEnemy = enemies.instance()
+			instancedEnemies.append(currMobEnemy)
+			get_tree().get_current_scene().add_child(currMobEnemy)
+			currMobEnemy.position.x = currMobRoom.position.x + randi() % 20  
+			currMobEnemy.position.y = currMobRoom.position.y + randi() % 20
+			currMobEnemy.scale.x = 0.75
+			currMobEnemy.scale.y = 0.75
+		
 func save_seed():
 	pass
 
 #Allows for space to be pressed for re-generating of rooms: Uncomment _input() and _draw() for debug features
 func _input(event):
-	if event.is_action_pressed('ui_select'):
-		for n in $AllRooms.get_children():
-			n.queue_free()
-		path = null
-		make_rooms()
-		dungeonBase.clear()
-		instancedPlayer.queue_free()
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_R:
+			for n in $AllRooms.get_children():
+				n.queue_free()
+			path = null
+			instancedPlayer.queue_free()
+			for enemy in instancedEnemies:
+				enemy.queue_free()
+			yield(get_tree().create_timer(0.2), "timeout")
+			dungeonBase.clear()
+			instancedEnemies.clear()
+			mobRoom.clear()
+			treasureRoom.clear()
+			make_rooms()
 
 
 #Draws the outlines of rooms & paths
