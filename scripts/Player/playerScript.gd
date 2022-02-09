@@ -14,6 +14,7 @@ enum {
 func _ready():
 	label.text = "HP: " + str(stats.health)
 	$AnimationTree.active = true
+	$deadbutton.hide()
 
 var state = MOVE
 var velocity
@@ -57,6 +58,7 @@ func roll_state():
 
 func death_state():
 	$AnimationTree.get("parameters/playback").travel("Death")
+	$deadbutton.show()
 
 func attack_animation_finished():
 	state = MOVE
@@ -106,3 +108,8 @@ func _on_MainDoor_area_entered(area):
 	get_tree().change_scene("res://scenes/Worlds/Level1.tscn")
 
 
+
+
+func _on_deadbutton_button_up():
+	_ready()
+	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")

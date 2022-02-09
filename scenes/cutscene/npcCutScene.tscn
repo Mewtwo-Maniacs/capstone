@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/FutureFantasy/100/characters/future4.png" type="Texture" id=1]
+[ext_resource path="res://scenes/cutscene/npcCutScene.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 12.0
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, -2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 82 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idleright"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 82 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walkRight"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 81, 82, 83 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "idleright"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "walkRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/idleright/node = SubResource( 5 )
+states/idleright/position = Vector2( 761, 74.9184 )
+states/walkRight/node = SubResource( 6 )
+states/walkRight/position = Vector2( 550, 74.9184 )
+transitions = [ "walkRight", "idleright", SubResource( 7 ) ]
+graph_offset = Vector2( 0, -60.0816 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[node name="NPCBOI" type="KinematicBody2D"]
+position = Vector2( 162, 92 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 1 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2, -2 )
+texture = ExtResource( 1 )
+hframes = 12
+vframes = 8
+frame = 82
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/idleright = SubResource( 4 )
+anims/walkRight = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 9 )

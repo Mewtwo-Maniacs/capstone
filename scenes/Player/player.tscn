@@ -1668,7 +1668,7 @@ states/Walk/node = SubResource( 20 )
 states/Walk/position = Vector2( 350.5, 73.25 )
 transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "Attack", SubResource( 43 ), "Attack", "Idle", SubResource( 44 ), "Roll", "Idle", SubResource( 50 ), "Idle", "Roll", SubResource( 51 ), "Idle", "Death", SubResource( 54 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -254, -58 )
+graph_offset = Vector2( -254, -17.0628 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=22]
 
@@ -1786,10 +1786,34 @@ stream = ExtResource( 81 )
 [node name="Death" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 83 )
 
+[node name="Control" type="Control" parent="."]
+margin_left = -65.0
+margin_top = -77.5
+margin_right = 65.0
+margin_bottom = -15.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deadbutton" type="Button" parent="."]
+anchor_left = 0.506
+anchor_top = 1.24
+anchor_right = 0.506
+anchor_bottom = 1.24
+margin_left = -61.2499
+margin_top = 50.0
+margin_right = 63.7501
+margin_bottom = 113.0
+text = "RESPAWN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="area_entered" from="HitboxPivot/SwordHitbox" to="." method="_on_SwordHitbox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="no_health" from="PlayerStats" to="." method="_on_PlayerStats_no_health"]
 [connection signal="update_health" from="PlayerStats" to="." method="_on_PlayerStats_update_health"]
+[connection signal="button_up" from="deadbutton" to="." method="_on_deadbutton_button_up"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="HurtBox"]
