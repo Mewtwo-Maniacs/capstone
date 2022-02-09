@@ -6,7 +6,7 @@ _Deployed Link: https://keithdrucker.itch.io/attackonfullstack_
 | :------: | ------ |
 | `Sung` | https://github.com/sung96kim |
 | `Jason` | https://github.com/Takeyourvitaminsbro |
-| `Gulam` | https://github.com/keithdrucker |
-| `Keith` | https://github.com/gulamcs |
+| `Gulam` | https://github.com/gulamcs |
+| `Keith` | https://github.com/keithdrucker |
 
 ***

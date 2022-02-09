@@ -27,8 +27,8 @@ func _on_Login_button_up():
 	pass # Replace with function body.
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
-	print("Success!")
 	userinfo = auth_info
+	print("Success!", str(userinfo))
 	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
 
 
@@ -52,7 +52,15 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 func _on_FirebaseAuth_signup_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
-	$Errors.text = "EMAIL ALREADY TAKEN"
+	print(error_code)
+	if(message == "INVALID_EMAIL"):
+		$Errors.text = "INVALID EMAIL"
+	if(message == "MISSING_PASSWORD"):
+		$Errors.text = "MISSING PASSWORD"
+	if(message == "EMAIL_EXISTS"):
+		$Errors.text = "EMAIL ALREADY EXISTS"
+	if(message == "WEAK_PASSWORD : Password should be at least 6 characters"):
+		$Errors.text = "PASSWORD SHOULD BE MINIMUM 6 CHARACTERS"
 
 func _on_ForgotPassword_button_up():
 	var email = $UserName.text

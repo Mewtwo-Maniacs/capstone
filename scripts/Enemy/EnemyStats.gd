@@ -29,6 +29,7 @@ func set_health(value):
 		emit_signal("update_health")
 		
 
+# warning-ignore:shadowed_variable
 func select_difficulty(difficulty): 
 	match difficulty: 
 		

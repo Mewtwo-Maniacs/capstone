@@ -5,6 +5,7 @@ onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
 export(int) var speed = 115
 
+
 enum {
 	MOVE,
 	ROLL,
@@ -15,6 +16,7 @@ enum {
 func _ready():
 	label.text = "HP: " + str(stats.health)
 	$AnimationTree.active = true
+	$deadbutton.hide()
 
 var state = MOVE
 var velocity
@@ -53,11 +55,12 @@ func attack_state():
 	$AnimationTree.get("parameters/playback").travel("Attack")
 
 func roll_state():
-	move_and_slide(velocity * 200)
+	move_and_slide(velocity * 180)
 	$AnimationTree.get("parameters/playback").travel("Roll")
 
 func death_state():
 	$AnimationTree.get("parameters/playback").travel("Death")
+	$deadbutton.show()
 
 func attack_animation_finished():
 	state = MOVE
@@ -75,21 +78,40 @@ func _physics_process(delta):
 		DEATH:
 			death_state()
 
-
 func _on_HurtBox_area_entered(area):
 	stats.health -= EnemyStats.MELEE_ATTACK
 	playerHurtBox.is_overlapping(0.5)
-	if stats.health <= 0:
+	if stats.health == 0:
+		$Node/Death.play()
 		state = DEATH
+		stats.health -= 1
+		
 
 func _on_PlayerStats_no_health():
 	label.text = "You Have Died!"
 
+var hurtCount = 0
 func _on_PlayerStats_update_health():
+	hurtCount += 1
+	if(hurtCount % 2 == 0):
+		$Node/Damaged2.play()
+	elif(hurtCount % 3 == 0):
+		$Node/Damaged3.play()
+	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
 
-func _on_SwordHitbox_area_entered(area):
-	pass # Replace with function body.
 
-func _on_Area2D_area_entered(area):
-	get_tree().change_scene("res://scenes/main.tscn")
+#BottomTeleport in HomeBase
+#func _on_BotTele_area_entered(area):
+#	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
+
+#MainDoor teleport in HomeBase
+func _on_MainDoor_area_entered(area):
+	get_tree().change_scene("res://scenes/Worlds/Level1.tscn")
+
+
+
+
+func _on_deadbutton_button_up():
+	_ready()
+	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")

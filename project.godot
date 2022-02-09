@@ -9,6 +9,36 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "DTS",
+"language": "GDScript",
+"path": "res://addons/dialogic/Localization/translation_service.gd"
+}, {
+"base": "Node",
+"class": "Dialogic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicClass.gd"
+}, {
+"base": "Control",
+"class": "DialogicBackgroundMusic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/BackgroundMusic.gd"
+}, {
+"base": "Node",
+"class": "DialogicDefinitionsUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicDefinitionsUtil.gd"
+}, {
+"base": "Reference",
+"class": "DialogicResources",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicResources.gd"
+}, {
+"base": "Reference",
+"class": "DialogicUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicUtil.gd"
+}, {
 "base": "HTTPRequest",
 "class": "FirebaseAuth",
 "language": "GDScript",
@@ -84,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-firebase/functions/function_task.gd"
 }, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
 "base": "Reference",
 "class": "StorageReference",
 "language": "GDScript",
@@ -95,6 +130,12 @@ _global_script_classes=[ {
 "path": "res://addons/godot-firebase/storage/storage_task.gd"
 } ]
 _global_script_class_icons={
+"DTS": "",
+"Dialogic": "",
+"DialogicBackgroundMusic": "",
+"DialogicDefinitionsUtil": "",
+"DialogicResources": "",
+"DialogicUtil": "",
 "FirebaseAuth": "",
 "FirebaseDatabase": "",
 "FirebaseDatabaseReference": "",
@@ -110,6 +151,7 @@ _global_script_class_icons={
 "FirestoreQuery": "",
 "FirestoreTask": "",
 "FunctionTask": "",
+"GitAPI": "",
 "StorageReference": "",
 "StorageTask": ""
 }
@@ -119,13 +161,13 @@ _global_script_class_icons={
 config/name="Capstone"
 run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
-<<<<<<<HEAD[autoload]Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [autoload]
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 EnemyStats="*res://scripts/Enemy/EnemyStats.gd"
 PlayerStats="*res://scripts/Player/playerStats.gd"
+Cutscene="*res://cutscene.gd"
 
 [display]
 
@@ -157,7 +199,11 @@ environment_variables/cacheLocation="user://.firebase_cache"
 
 [gdnative]
 
+<<<<<<< HEAD
 singletons=[  ]
+=======
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+>>>>>>> 57b2df8c092a908c2bd414a8805548f7aa54fda1
 
 [importer_defaults]
 
