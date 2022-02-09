@@ -4,6 +4,8 @@ onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
 export(int) var speed = 115
+
+
 enum {
 	MOVE,
 	ROLL,
