@@ -1754,7 +1754,6 @@ position = Vector2( -3, 7 )
 shape = SubResource( 55 )
 
 [node name="PlayerStats" parent="." instance=ExtResource( 76 )]
-MAX_HEALTH = 15
 
 [node name="HealthUI" parent="." instance=ExtResource( 77 )]
 
