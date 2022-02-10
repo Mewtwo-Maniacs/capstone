@@ -178,10 +178,10 @@ func make_map():
 		corridors.append(p)
 	
 	dungeonBase.update_bitmask_region()
-#	dungeonBase.update_dirty_quadrants()
+	dungeonBase.update_dirty_quadrants()
 	yield(get_tree().create_timer(0.2), "timeout")
 	disable_room_collision()
-	yield(get_tree().create_timer(0.2), "timeout")
+#	yield(get_tree().create_timer(0.2), "timeout")
 	spawn_player()
 	spawn_enemies()
 
@@ -218,12 +218,12 @@ func spawn_player():
 	instancedPlayer = player.instance()
 	instancedPlayer.add_child(playerCamera)
 	playerCamera.current = true
-	get_tree().get_current_scene().add_child(instancedPlayer)
 	instancedPlayer.position = spawnRoom.position
+	get_tree().get_current_scene().add_child(instancedPlayer)
 	
 	#Uncomment to zoom out for debugging" 
-	playerCamera.zoom.x = 4
-	playerCamera.zoom.y = 4
+#	playerCamera.zoom.x = 4
+#	playerCamera.zoom.y = 4
 
 func spawn_enemies():
 	for i in range(3):
