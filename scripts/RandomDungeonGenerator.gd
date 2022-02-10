@@ -59,6 +59,7 @@ func _ready():
 
 #Check FPS when debugging
 #func _process(_delta):
+#	update()
 #	print(Performance.get_monitor(Performance.TIME_FPS))
 
 func make_rooms(): 
@@ -178,8 +179,9 @@ func make_map():
 	
 	dungeonBase.update_bitmask_region()
 	dungeonBase.update_dirty_quadrants()
-	disable_room_collision()
 	yield(get_tree().create_timer(0.2), "timeout")
+	disable_room_collision()
+#	yield(get_tree().create_timer(0.2), "timeout")
 	spawn_player()
 	spawn_enemies()
 
@@ -216,8 +218,8 @@ func spawn_player():
 	instancedPlayer = player.instance()
 	instancedPlayer.add_child(playerCamera)
 	playerCamera.current = true
-	get_tree().get_current_scene().add_child(instancedPlayer)
 	instancedPlayer.position = spawnRoom.position
+	get_tree().get_current_scene().add_child(instancedPlayer)
 	
 	#Uncomment to zoom out for debugging" 
 #	playerCamera.zoom.x = 4
@@ -227,26 +229,32 @@ func spawn_enemies():
 	for i in range(3):
 		var currBossEnemy = enemies.instance()
 		instancedEnemies.append(currBossEnemy)
+		currBossEnemy.position.x = bossRoom.position.x + randi() % 20  
+		currBossEnemy.position.y = bossRoom.position.y + randi() % 20
 		get_tree().get_current_scene().add_child(currBossEnemy)
 		currBossEnemy.position.x = bossRoom.position.x + randi() % 20  
 		currBossEnemy.position.y = bossRoom.position.y + randi() % 20
 		currBossEnemy.scale.x = 2
 		currBossEnemy.scale.y = 2
+		currBossEnemy.wanderController.wander_range = 70
 	
 	for currMobRoom in mobRoom:
 		for i in MobRoomEnemyCount:
 			var currMobEnemy = enemies.instance()
 			instancedEnemies.append(currMobEnemy)
+			currMobEnemy.position.x = currMobRoom.position.x + randi() % 20  
+			currMobEnemy.position.y = currMobRoom.position.y + randi() % 20
 			get_tree().get_current_scene().add_child(currMobEnemy)
 			currMobEnemy.position.x = currMobRoom.position.x + randi() % 20  
 			currMobEnemy.position.y = currMobRoom.position.y + randi() % 20
 			currMobEnemy.scale.x = 0.50
 			currMobEnemy.scale.y = 0.50
-		
+			currMobEnemy.wanderController.wander_range = 70
+
 func save_seed():
 	pass
 
-#Allows for space to be pressed for re-generating of rooms: Uncomment _input() and _draw() for debug features
+#Allows for "R" to be pressed for re-generating of rooms: Uncomment _input() and _draw() for debug features
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_R:
@@ -272,8 +280,8 @@ func _input(event):
 #
 #	if spawnRoom: 
 #		draw_rect(Rect2(spawnRoom.position - spawnRoom.size, spawnRoom.size * 2), Color(228, 0, 0), false)
-#	if endRoom: 
-#		draw_rect(Rect2(endRoom.position - endRoom.size, endRoom.size * 2), Color(0, 0, 228), false)
+#	if bossRoom: 
+#		draw_rect(Rect2(bossRoom.position - bossRoom.size, bossRoom.size * 2), Color(0, 0, 228), false)
 #
 ## 	Create path outline	
 #	if path:
