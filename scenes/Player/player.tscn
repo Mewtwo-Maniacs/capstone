@@ -1652,6 +1652,7 @@ visible = false
 
 [node name="Attack" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 79 )
+volume_db = -38.0
 
 [node name="Damaged" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 82 )
