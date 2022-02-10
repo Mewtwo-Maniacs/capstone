@@ -1,4 +1,4 @@
-extends Node2D
+extends YSort
 
 export(int) var MobRoomEnemyCount = 5
 export(int) var BossRoomEnemyCount = 5
@@ -7,6 +7,8 @@ var Rooms = preload("res://scenes/RDG_Room.tscn")
 var roomTiles = preload("res://scenes/Worlds/DungeonGenRoomAutotiles.tres")
 var player = preload("res://scenes/Player/player.tscn")
 var enemies = preload("res://scenes/Enemies/BigDemon.tscn")
+
+onready var transition := $SceneTransition/AnimationPlayer
 onready var dungeonBase = $Base
 var instancedPlayer
 var instancedEnemies = []
@@ -55,6 +57,7 @@ var room_types = {
 
 func _ready():
 	randomize()
+	transition.play("Fade")
 	make_rooms()
 
 #Check FPS when debugging
@@ -92,6 +95,7 @@ func make_rooms():
 
 # 	To add space between rooms we take rooms and then resize them down after waiting for rooms to stop moving
 	yield(get_tree().create_timer(0.2), "timeout")
+	transition.play("Fade")
 	resize_rooms()
 
 #Get a random number (Used with shuffle_rooms to create a pseudorandom generation of rooms
@@ -179,9 +183,9 @@ func make_map():
 	
 	dungeonBase.update_bitmask_region()
 	dungeonBase.update_dirty_quadrants()
-	yield(get_tree().create_timer(0.2), "timeout")
 	disable_room_collision()
-#	yield(get_tree().create_timer(0.2), "timeout")
+	yield(get_tree().create_timer(0.2), "timeout")
+	transition.play("Fade")
 	spawn_player()
 	spawn_enemies()
 
@@ -258,17 +262,18 @@ func save_seed():
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_R:
-			for n in $AllRooms.get_children():
-				n.queue_free()
-			path = null
-			instancedPlayer.queue_free()
+			dungeonBase.clear()
+			transition.play("Fade")
+#			yield(get_tree().create_timer(1), "timeout")
 			for enemy in instancedEnemies:
 				enemy.queue_free()
-			yield(get_tree().create_timer(0.2), "timeout")
-			dungeonBase.clear()
 			instancedEnemies.clear()
 			mobRoom.clear()
 			treasureRoom.clear()
+			for n in $AllRooms.get_children():
+				n.queue_free()
+			path = null
+			instancedPlayer.queue_free() 
 			make_rooms()
 
 
