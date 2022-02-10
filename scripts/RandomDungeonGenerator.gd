@@ -236,6 +236,7 @@ func spawn_enemies():
 		currBossEnemy.position.y = bossRoom.position.y + randi() % 20
 		currBossEnemy.scale.x = 2
 		currBossEnemy.scale.y = 2
+		currBossEnemy.wanderController.wander_range = 70
 	
 	for currMobRoom in mobRoom:
 		for i in MobRoomEnemyCount:
