@@ -248,7 +248,8 @@ func spawn_enemies():
 			currMobEnemy.position.y = currMobRoom.position.y + randi() % 20
 			currMobEnemy.scale.x = 0.50
 			currMobEnemy.scale.y = 0.50
-		
+			currMobEnemy.wanderController.wander_range = 70
+
 func save_seed():
 	pass
 
