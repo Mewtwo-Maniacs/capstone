@@ -4,7 +4,8 @@ onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
 export(int) var speed = 115
-
+var state = MOVE
+var velocity
 
 enum {
 	MOVE,
@@ -18,8 +19,6 @@ func _ready():
 	$AnimationTree.active = true
 	$deadbutton.hide()
 
-var state = MOVE
-var velocity
 func move_state():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
@@ -55,6 +54,8 @@ func move_state():
 func attack_state():
 	if stats.health > 0:
 		$AnimationTree.get("parameters/playback").travel("Attack")
+	else:
+		state = DEATH
 
 func roll_state():
 	move_and_slide(velocity * 180)
@@ -87,7 +88,6 @@ func _on_HurtBox_area_entered(area):
 		$Node/Death.play()
 		state = DEATH
 		stats.health -= 1
-		
 
 func _on_PlayerStats_no_health():
 	label.text = "You Have Died!"
@@ -101,11 +101,6 @@ func _on_PlayerStats_update_health():
 		$Node/Damaged3.play()
 	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
-
-
-#BottomTeleport in HomeBase
-#func _on_BotTele_area_entered(area):
-#	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
 
 #MainDoor teleport in HomeBase
 func _on_MainDoor_area_entered(area):
