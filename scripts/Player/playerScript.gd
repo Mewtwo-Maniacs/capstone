@@ -3,6 +3,9 @@ extends KinematicBody2D
 onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
+onready var hpBar = $HUD/HealthBar
+onready var hpBarCurrentValue = $HUD/CurrentHealth
+onready var hpBarMaxHealthValue = $HUD/MaxHealth
 export(int) var speed = 115
 var state = MOVE
 var velocity
@@ -15,6 +18,10 @@ enum {
 }
 
 func _ready():
+	hpBar.value = stats.health
+	hpBar.max_value = stats.health
+	hpBarCurrentValue.text = str(stats.health)
+	hpBarMaxHealthValue.text = str(stats.health)
 	label.text = "HP: " + str(stats.health)
 	$AnimationTree.active = true
 	$deadbutton.hide()
@@ -91,6 +98,8 @@ func _on_HurtBox_area_entered(area):
 
 func _on_PlayerStats_no_health():
 	label.text = "You Have Died!"
+	hpBar.value = 0
+	hpBarCurrentValue.text = "0"
 
 var hurtCount = 0
 func _on_PlayerStats_update_health():
@@ -101,6 +110,9 @@ func _on_PlayerStats_update_health():
 		$Node/Damaged3.play()
 	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
+	hpBarCurrentValue.text = str(stats.health)
+	hpBar.value = stats.health
+	
 
 #MainDoor teleport in HomeBase
 func _on_MainDoor_area_entered(area):

@@ -30,7 +30,6 @@ __meta__ = {
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_right = 117.0
 margin_bottom = 51.0
-value = 35.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
 texture_progress_offset = Vector2( 23, 16 )
@@ -68,20 +67,46 @@ __meta__ = {
 [node name="CurrentHealth" type="Label" parent="."]
 margin_left = 39.0
 margin_top = 19.0
-margin_right = 100.0
+margin_right = 56.0
 margin_bottom = 35.0
 rect_scale = Vector2( 1, 0.8 )
 custom_fonts/font = SubResource( 2 )
-text = "15 / 100"
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxHealth" type="Label" parent="."]
+margin_left = 73.3333
+margin_top = 19.3333
+margin_right = 134.333
+margin_bottom = 35.3333
+rect_scale = Vector2( 1, 0.8 )
+custom_fonts/font = SubResource( 2 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="Label" parent="."]
+margin_left = 56.0
+margin_top = 19.3333
+margin_right = 117.0
+margin_bottom = 35.3333
+rect_scale = Vector2( 1, 0.8 )
+custom_fonts/font = SubResource( 2 )
+text = " / "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 355.333
-margin_top = 10.0
-margin_right = 405.333
-margin_bottom = 24.0
+margin_left = 435.0
+margin_top = 9.0
+margin_right = 483.0
+margin_bottom = 23.0
 color = Color( 0.188235, 0.168627, 0.168627, 0.505882 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,9 +118,9 @@ scale = Vector2( 0.323684, 0.323684 )
 texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="ColorRect"]
-margin_left = 17.0
+margin_left = 15.3333
 margin_top = 2.0
-margin_right = 53.0
+margin_right = 51.3333
 margin_bottom = 18.0
 rect_scale = Vector2( 0.75, 0.75 )
 custom_fonts/font = SubResource( 3 )
