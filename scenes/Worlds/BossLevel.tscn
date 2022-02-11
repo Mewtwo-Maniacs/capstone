@@ -95,7 +95,7 @@ scale = Vector2( 1.25, 1.25 )
 MAX_SPEED = 20
 
 [node name="AnimatedSprite" parent="BigDemon2SLOWER" index="0"]
-frame = 1
+frame = 0
 
 [node name="Stats" parent="BigDemon2SLOWER" index="7"]
 MAX_HEALTH = 1000
@@ -106,6 +106,7 @@ position = Vector2( 483, 61 )
 
 [node name="BossFight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -30.0
 autoplay = true
 
 [editable path="BigDemon2SLOWER"]
