@@ -6,7 +6,7 @@
 			"event_id": "dialogic_030",
 			"event_name": "AudioEvent",
 			"file": "res://assets/SFX/boss theme.ogg",
-			"volume": 0
+			"volume": -30
 		},
 		{
 			"action": "join",
