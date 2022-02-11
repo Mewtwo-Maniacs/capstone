@@ -1637,6 +1637,7 @@ shape = SubResource( 55 )
 [node name="PlayerStats" parent="." instance=ExtResource( 76 )]
 
 [node name="HealthUI" parent="." instance=ExtResource( 77 )]
+visible = false
 
 [node name="Label" parent="HealthUI" index="0"]
 margin_left = -28.0
