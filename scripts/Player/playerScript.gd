@@ -53,7 +53,8 @@ func move_state():
 		state = DEATH
 
 func attack_state():
-	$AnimationTree.get("parameters/playback").travel("Attack")
+	if stats.health > 0:
+		$AnimationTree.get("parameters/playback").travel("Attack")
 
 func roll_state():
 	move_and_slide(velocity * 180)
