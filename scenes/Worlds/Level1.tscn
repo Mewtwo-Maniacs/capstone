@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Worlds/level1.tres" type="TileSet" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://scripts/World/EndSign.gd" type="Script" id=6]
 [ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Level 1.wav" type="AudioStream" id=7]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Player/deadbutton.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.25, 8 )
@@ -111,8 +110,6 @@ position = Vector2( 81, 60 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
 current = true
-
-[node name="deadbutton2" parent="Player" instance=ExtResource( 9 )]
 
 [node name="BigDemonFAST" parent="." instance=ExtResource( 3 )]
 position = Vector2( 493, 276 )
