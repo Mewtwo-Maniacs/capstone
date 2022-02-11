@@ -30,6 +30,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	userinfo = auth_info
 	print("Success!", str(userinfo))
 	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
+	
 
 
 func _on_FirebaseAuth_login_failed(error_code, message):
@@ -48,7 +49,8 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	print("signup successful" + str(auth_info))
 	userinfo = auth_info
 	Firebase.Auth.send_account_verification_email()
-	
+	$Errors.text = "Account created! Please log in"
+
 func _on_FirebaseAuth_signup_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))

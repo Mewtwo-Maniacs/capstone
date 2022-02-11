@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Worlds/level1.tres" type="TileSet" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/Worlds/new_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://scripts/World/EndSign.gd" type="Script" id=6]
 [ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Level 1.wav" type="AudioStream" id=7]
-[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.25, 8 )
@@ -112,7 +111,27 @@ visible = false
 current = true
 
 [node name="BigDemonFAST" parent="." instance=ExtResource( 3 )]
-position = Vector2( 493, 276 )
+position = Vector2( 172, 260 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 103, 469 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 102, 633 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 464, 364 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 478, 78 )
 scale = Vector2( 0.5, 0.5 )
 MAX_SPEED = 110
 
@@ -121,12 +140,18 @@ position = Vector2( 810, 91 )
 scale = Vector2( 1.25, 1.25 )
 MAX_SPEED = 90
 
+[node name="BigDemon2SLOWER2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 412, 714 )
+scale = Vector2( 1.25, 1.25 )
+MAX_SPEED = 90
+
 [node name="BigDemon3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 626, 436 )
+
+[node name="BigDemon4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 665, 876 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -30.0
 autoplay = true
-
-[node name="UI" parent="." instance=ExtResource( 8 )]

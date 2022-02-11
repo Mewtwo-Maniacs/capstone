@@ -3,7 +3,13 @@ extends KinematicBody2D
 onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
+onready var hpBar = $HUD/HealthBar
+onready var hpBarCurrentValue = $HUD/CurrentHealth
+onready var hpBarMaxHealthValue = $HUD/MaxHealth
 export(int) var speed = 115
+var state = MOVE
+var velocity
+
 enum {
 	MOVE,
 	ROLL,
@@ -12,11 +18,14 @@ enum {
 }
 
 func _ready():
+	hpBar.value = stats.health
+	hpBar.max_value = stats.health
+	hpBarCurrentValue.text = str(stats.health)
+	hpBarMaxHealthValue.text = str(stats.health)
 	label.text = "HP: " + str(stats.health)
 	$AnimationTree.active = true
+	$deadbutton.hide()
 
-var state = MOVE
-var velocity
 func move_state():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
@@ -42,6 +51,7 @@ func move_state():
 	move_and_slide(velocity * speed)
 	
 	if Input.is_action_just_pressed("attack"):
+		$Node/Attack.play()
 		state = ATTACK
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
@@ -49,7 +59,10 @@ func move_state():
 		state = DEATH
 
 func attack_state():
-	$AnimationTree.get("parameters/playback").travel("Attack")
+	if stats.health > 0:
+		$AnimationTree.get("parameters/playback").travel("Attack")
+	else:
+		state = DEATH
 
 func roll_state():
 	move_and_slide(velocity * 180)
@@ -57,6 +70,7 @@ func roll_state():
 
 func death_state():
 	$AnimationTree.get("parameters/playback").travel("Death")
+	$deadbutton.show()
 
 func attack_animation_finished():
 	state = MOVE
@@ -81,10 +95,11 @@ func _on_HurtBox_area_entered(area):
 		$Node/Death.play()
 		state = DEATH
 		stats.health -= 1
-		
 
 func _on_PlayerStats_no_health():
 	label.text = "You Have Died!"
+	hpBar.value = 0
+	hpBarCurrentValue.text = "0"
 
 var hurtCount = 0
 func _on_PlayerStats_update_health():
@@ -95,14 +110,14 @@ func _on_PlayerStats_update_health():
 		$Node/Damaged3.play()
 	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
-
-
-#BottomTeleport in HomeBase
-#func _on_BotTele_area_entered(area):
-#	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
+	hpBarCurrentValue.text = str(stats.health)
+	hpBar.value = stats.health
+	
 
 #MainDoor teleport in HomeBase
 func _on_MainDoor_area_entered(area):
 	get_tree().change_scene("res://scenes/Worlds/Level1.tscn")
 
-
+func _on_deadbutton_button_up():
+	_ready()
+	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/big_boss_2_0.wav-09ea2569df60a4a3cbdafa810a7fd44b.sample"
+
+[deps]
+
+source_file="res://assets/SFX/big_boss_2_0.wav"
+dest_files=[ "res://.import/big_boss_2_0.wav-09ea2569df60a4a3cbdafa810a7fd44b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
