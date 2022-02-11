@@ -111,7 +111,27 @@ visible = false
 current = true
 
 [node name="BigDemonFAST" parent="." instance=ExtResource( 3 )]
-position = Vector2( 493, 276 )
+position = Vector2( 172, 260 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 103, 469 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 102, 633 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 464, 364 )
+scale = Vector2( 0.5, 0.5 )
+MAX_SPEED = 110
+
+[node name="BigDemonFAST3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 478, 78 )
 scale = Vector2( 0.5, 0.5 )
 MAX_SPEED = 110
 
@@ -120,8 +140,16 @@ position = Vector2( 810, 91 )
 scale = Vector2( 1.25, 1.25 )
 MAX_SPEED = 90
 
+[node name="BigDemon2SLOWER2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 412, 714 )
+scale = Vector2( 1.25, 1.25 )
+MAX_SPEED = 90
+
 [node name="BigDemon3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 626, 436 )
+
+[node name="BigDemon4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 665, 876 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
