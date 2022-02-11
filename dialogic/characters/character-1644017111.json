@@ -5,7 +5,7 @@
 	"display_name_bool": false,
 	"id": "character-1644017111.json",
 	"mirror_portraits": false,
-	"name": "Keith",
+	"name": "Omar",
 	"nickname": "",
 	"nickname_bool": false,
 	"offset_x": 15,
@@ -13,7 +13,11 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://assets/portraits/image.png"
+			"path": ""
+		},
+		{
+			"name": "omarHappy",
+			"path": "res://assets/portraits/omarHappy.png"
 		}
 	],
 	"scale": 1

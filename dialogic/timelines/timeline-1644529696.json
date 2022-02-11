@@ -1,0 +1,39 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1644529747.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1644529747.json",
+			"event_id": "dialogic_001",
+			"portrait": "MacHappy",
+			"text": "... Whaa....? ... what... happened?"
+		},
+		{
+			"character": "character-1644529747.json",
+			"event_id": "dialogic_001",
+			"portrait": "MacHappy",
+			"text": "Where am I? Why does my mouth taste like batteries...?"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1644529696.json",
+		"name": "endOfBossFight"
+	}
+}
