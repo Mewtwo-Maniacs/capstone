@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var stats = $PlayerStats
 onready var label = $HealthUI/Label
 onready var playerHurtBox = $HurtBox
+#onready var playerSwordHitbox = $HitboxPivot/SwordHitbox
 export(int) var speed = 115
 
 
@@ -15,9 +16,11 @@ enum {
 
 func _ready():
 	label.text = "HP: " + str(stats.health)
+#	playerHPBar.value = (stats.health / stats.MAX_HEALTHUI) / 100
 	$AnimationTree.active = true
 	$deadbutton.hide()
-
+#	playerSwordHitbox.knockback_vector = roll_vector
+	
 var state = MOVE
 var velocity
 func move_state():
@@ -100,6 +103,7 @@ func _on_PlayerStats_update_health():
 		$Node/Damaged3.play()
 	else: $Node/Damaged.play()
 	label.text = "HP: " + str(stats.health)
+#	playerHPBar.value = (stats.health / stats.MAX_HEALTHUI) / 100
 
 
 #BottomTeleport in HomeBase

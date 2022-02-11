@@ -1,6 +1,7 @@
 extends Node
 export var attackPower = 10
 export(int) var MAX_HEALTH = 10
+onready var MAX_HEALTHUI = MAX_HEALTH
 onready var health = MAX_HEALTH setget set_health
 
 signal no_health

@@ -85,6 +85,7 @@ func pick_new_state(stateList):
 
 func _on_HurtBox_area_entered(area):
 	enemyHurtBox.hit_effect()
+	print(area.knockback_vector)
 	enemyStats.health -= playerStats.attackPower
 	move_and_slide(-velocity * 50)
 	
