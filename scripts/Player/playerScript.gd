@@ -110,9 +110,6 @@ func _on_PlayerStats_update_health():
 func _on_MainDoor_area_entered(area):
 	get_tree().change_scene("res://scenes/Worlds/Level1.tscn")
 
-
-
-
 func _on_deadbutton_button_up():
 	_ready()
 	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")

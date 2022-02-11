@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/FutureFantasy/100/master_tiles.png" type="Texture" id=2]
 [ext_resource path="res://scripts/World/TeleDetectionZone.gd" type="Script" id=3]
 
@@ -27,12 +26,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 915, 1013, 42, 38 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 39, 81 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
 
 [node name="CollisionWalls" type="CollisionShape2D" parent="."]
 position = Vector2( -12, 0 )

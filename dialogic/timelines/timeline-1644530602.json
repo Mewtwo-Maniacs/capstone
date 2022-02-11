@@ -1,0 +1,47 @@
+{
+	"events": [
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://assets/SFX/boss theme.ogg",
+			"volume": 0
+		},
+		{
+			"action": "join",
+			"character": "character-1644529747.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "MacHappy",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1644529747.json",
+			"event_id": "dialogic_001",
+			"portrait": "MacHappy",
+			"text": "Lifeform detected. Initiating combat sequence."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1644530602.json",
+		"name": "preBossFight"
+	}
+}

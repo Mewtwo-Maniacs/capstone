@@ -1,0 +1,24 @@
+{
+	"color": "#ff07b108",
+	"description": "The big boss",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1644529747.json",
+	"mirror_portraits": false,
+	"name": "Mac",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -190,
+	"offset_y": -125,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "MacHappy",
+			"path": "res://assets/portraits/MacHappy.png"
+		}
+	],
+	"scale": 20
+}
