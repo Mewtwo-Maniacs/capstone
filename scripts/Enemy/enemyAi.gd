@@ -7,7 +7,7 @@ export var WANDER_RANGE = 4
 
 var knockback = Vector2.ZERO
 var velocity = Vector2.ZERO
-
+signal leveler
 enum {
 	IDLE, 
 	WANDER,
@@ -29,7 +29,6 @@ onready var player_level = get_node("/root/PlayerStats").get("level")
 func _ready():
 	state = pick_new_state([IDLE, WANDER])
 	label.text = "HP: " + str(enemyStats.health)
-	print('current player level', player_level)
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -89,7 +88,8 @@ func _on_HurtBox_area_entered(area):
 	move_and_slide(-velocity * 50)
 	
 func _on_Stats_no_health():
-	get_node("/root/PlayerStats").gain_experience(10)
+	#get_node("/root/PlayerStats").gain_experience(10)
+	emit_signal("leveler")
 	queue_free()
 
 func _on_Stats_update_health():

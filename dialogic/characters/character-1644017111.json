@@ -8,7 +8,7 @@
 	"name": "Omar",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 15,
+	"offset_x": -175,
 	"offset_y": -125,
 	"portraits": [
 		{
@@ -20,5 +20,5 @@
 			"path": "res://assets/portraits/omarHappy.png"
 		}
 	],
-	"scale": 1
+	"scale": 20
 }
