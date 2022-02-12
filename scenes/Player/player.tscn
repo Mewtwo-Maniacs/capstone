@@ -1711,6 +1711,7 @@ __meta__ = {
 
 [connection signal="area_entered" from="HitboxPivot/SwordHitbox" to="." method="_on_SwordHitbox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="gain_xp" from="PlayerStats" to="." method="_on_PlayerStats_gain_xp"]
 [connection signal="leveled_up" from="PlayerStats" to="." method="_on_PlayerStats_leveled_up"]
 [connection signal="no_health" from="PlayerStats" to="." method="_on_PlayerStats_no_health"]
 [connection signal="update_health" from="PlayerStats" to="." method="_on_PlayerStats_update_health"]

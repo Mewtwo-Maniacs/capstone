@@ -7,6 +7,7 @@ var level = 1
 signal no_health
 signal update_health
 signal leveled_up
+signal gain_xp
 
 func set_health(value):
 	health = value
@@ -26,9 +27,13 @@ func get_required_experience(level):
 func gain_experience(amount):
 	experience_total += amount
 	current_experience += amount
+	emit_signal("gain_xp")
 	while current_experience >= experience_required:
 		current_experience -= experience_required
 		level_up()
+func get_current_xp():
+	return current_experience
+	
 
 func level_up():
 	emit_signal("leveled_up")

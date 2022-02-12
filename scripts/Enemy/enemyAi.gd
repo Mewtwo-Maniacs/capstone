@@ -29,7 +29,6 @@ onready var player_level = get_node("/root/PlayerStats").get("level")
 func _ready():
 	state = pick_new_state([IDLE, WANDER])
 	label.text = "HP: " + str(enemyStats.health)
-	print('current player level', player_level)
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -86,7 +85,6 @@ func pick_new_state(stateList):
 func _on_HurtBox_area_entered(area):
 	enemyHurtBox.hit_effect()
 	enemyStats.health -= playerStats.attackPower
-	print('player attack pwr', playerStats.attackPower)
 	move_and_slide(-velocity * 50)
 	
 func _on_Stats_no_health():
