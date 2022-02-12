@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SFX/big_boss_2_0.wav" type="AudioStream" id=2]
@@ -13,6 +13,8 @@ extents = Vector2( 9.25, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19, 14.5 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="Floor" type="TileMap"]
 tile_set = ExtResource( 8 )
@@ -80,6 +82,9 @@ tile_data = PoolIntArray( 458772, 0, 0, 458773, 0, 0, 458776, 0, 0, 458777, 0, 0
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 208, 145 )
 
+[node name="AnimationTree" parent="Player" index="3"]
+parameters/playback = SubResource( 3 )
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
@@ -94,9 +99,6 @@ position = Vector2( 310, 86 )
 scale = Vector2( 1.25, 1.25 )
 MAX_SPEED = 20
 
-[node name="AnimatedSprite" parent="BigDemon2SLOWER" index="0"]
-frame = 0
-
 [node name="Stats" parent="BigDemon2SLOWER" index="7"]
 MAX_HEALTH = 1000
 
@@ -109,6 +111,13 @@ stream = ExtResource( 2 )
 volume_db = -30.0
 autoplay = true
 
+[connection signal="leveler" from="BigDemon2SLOWER" to="Player/PlayerStats" method="_on_BossDemon_leveler"]
+
+[editable path="Player"]
+[editable path="Player/HitboxPivot/SwordHitbox"]
+[editable path="Player/HurtBox"]
+[editable path="Player/HealthUI"]
+[editable path="Player/InteractivityArea"]
 [editable path="BigDemon2SLOWER"]
 [editable path="BigDemon2SLOWER/PlayerDetectionZone"]
 [editable path="BigDemon2SLOWER/HurtBox"]

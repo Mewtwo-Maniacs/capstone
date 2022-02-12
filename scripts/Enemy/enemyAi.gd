@@ -7,7 +7,7 @@ export var WANDER_RANGE = 4
 
 var knockback = Vector2.ZERO
 var velocity = Vector2.ZERO
-
+signal leveler
 enum {
 	IDLE, 
 	WANDER,
@@ -86,10 +86,12 @@ func pick_new_state(stateList):
 func _on_HurtBox_area_entered(area):
 	enemyHurtBox.hit_effect()
 	enemyStats.health -= playerStats.attackPower
+	print('player attack pwr', playerStats.attackPower)
 	move_and_slide(-velocity * 50)
 	
 func _on_Stats_no_health():
-	get_node("/root/PlayerStats").gain_experience(10)
+	#get_node("/root/PlayerStats").gain_experience(10)
+	emit_signal("leveler")
 	queue_free()
 
 func _on_Stats_update_health():

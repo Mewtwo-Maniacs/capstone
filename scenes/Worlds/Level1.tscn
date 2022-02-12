@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Worlds/level1.tres" type="TileSet" id=2]
@@ -13,6 +13,8 @@ extents = Vector2( 9.25, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.5, 14.5 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="Floor" type="TileMap"]
 tile_set = ExtResource( 2 )
@@ -104,10 +106,17 @@ format = 1
 tile_data = PoolIntArray( 1966096, 53, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 81, 60 )
+position = Vector2( 142, 63 )
+
+[node name="AnimationTree" parent="Player" index="3"]
+parameters/playback = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/Node" index="6"]
+stream = ExtResource( 7 )
+volume_db = -30.0
+autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 current = true
 
 [node name="BigDemonFAST" parent="." instance=ExtResource( 3 )]
@@ -151,7 +160,18 @@ position = Vector2( 626, 436 )
 [node name="BigDemon4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 665, 876 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -30.0
-autoplay = true
+[connection signal="leveler" from="BigDemonFAST" to="Player/PlayerStats" method="_on_BigDemonFAST_leveler"]
+[connection signal="leveler" from="BigDemonFAST4" to="Player/PlayerStats" method="_on_BigDemonFAST4_leveler"]
+[connection signal="leveler" from="BigDemonFAST5" to="Player/PlayerStats" method="_on_BigDemonFAST5_leveler"]
+[connection signal="leveler" from="BigDemonFAST2" to="Player/PlayerStats" method="_on_BigDemonFAST2_leveler"]
+[connection signal="leveler" from="BigDemonFAST3" to="Player/PlayerStats" method="_on_BigDemonFAST3_leveler"]
+[connection signal="leveler" from="BigDemon2SLOWER" to="Player/PlayerStats" method="_on_BigDemon2SLOWER_leveler"]
+[connection signal="leveler" from="BigDemon2SLOWER2" to="Player/PlayerStats" method="_on_BigDemon2SLOWER2_leveler"]
+[connection signal="leveler" from="BigDemon3" to="Player/PlayerStats" method="_on_BigDemon3_leveler"]
+[connection signal="leveler" from="BigDemon4" to="Player/PlayerStats" method="_on_BigDemon4_leveler"]
+
+[editable path="Player"]
+[editable path="Player/HitboxPivot/SwordHitbox"]
+[editable path="Player/HurtBox"]
+[editable path="Player/HealthUI"]
+[editable path="Player/InteractivityArea"]

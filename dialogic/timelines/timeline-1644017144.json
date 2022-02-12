@@ -5,11 +5,11 @@
 			"character": "character-1644017111.json",
 			"event_id": "dialogic_002",
 			"mirror": false,
-			"portrait": "",
+			"portrait": "omarHappy",
 			"position": {
 				"0": false,
-				"1": true,
-				"2": false,
+				"1": false,
+				"2": true,
 				"3": false,
 				"4": false
 			}
