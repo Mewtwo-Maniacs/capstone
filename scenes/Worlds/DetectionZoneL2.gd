@@ -8,17 +8,15 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("ui_yeet") and active:
-		get_tree().change_scene("res://scenes/Worlds/Level2.tscn")
+		get_tree().change_scene("res://scenes/Worlds/BossLevel.tscn")
 		print ("E was pressed")
 
 func _on_EndTele_body_entered(body):
 	if body.name == 'Player':
-		$endTele2.text = "'E'"
 		active = true
 
 func _on_EndTele_body_exited(body):
 	if body.name == 'Player':
 		active = false
-		$endTele2.text = ""
-		
 
+		
