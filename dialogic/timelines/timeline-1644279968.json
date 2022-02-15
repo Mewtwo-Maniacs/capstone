@@ -4,7 +4,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Use this teleporter to take you to the [InsertLoreItemHere] where you can get practice your skills!"
+			"text": "Use this teleporter to take you to the newly enhanced A.I. Simulator. There will be a randomly generated map full of tough enemies. Press 'R' while inside to generate a new layout."
 		},
 		{
 			"event_id": "dialogic_022",

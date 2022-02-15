@@ -7,18 +7,14 @@ func _ready():
 	connect("body_exited", self, '_on_EndTele_body_exited')
 	
 func _input(event):
-	if event.is_action_pressed("ui_yeet") and active:
-		get_tree().change_scene("res://scenes/Worlds/Level2.tscn")
-		print ("E was pressed")
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_E and active:
+			get_tree().change_scene("res://scenes/DungeonGenerator.tscn")
 
 func _on_EndTele_body_entered(body):
 	if body.name == 'Player':
-		$endTele2.text = "'E'"
 		active = true
 
 func _on_EndTele_body_exited(body):
 	if body.name == 'Player':
 		active = false
-		$endTele2.text = ""
-		
-

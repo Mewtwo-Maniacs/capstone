@@ -6,6 +6,8 @@ onready var playerHurtBox = $HurtBox
 onready var hpBar = $HUD/HealthBar
 onready var hpBarCurrentValue = $HUD/CurrentHealth
 onready var hpBarMaxHealthValue = $HUD/MaxHealth
+onready var level_label = $HUD/Level
+onready var xpBar = $HUD/EXPBar
 export(int) var speed = 115
 var state = MOVE
 var velocity
@@ -18,6 +20,7 @@ enum {
 }
 
 func _ready():
+	xpBar.value = 0
 	hpBar.value = stats.health
 	hpBar.max_value = stats.health
 	hpBarCurrentValue.text = str(stats.health)
@@ -121,3 +124,25 @@ func _on_MainDoor_area_entered(area):
 func _on_deadbutton_button_up():
 	_ready()
 	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
+
+var level = 1
+func _on_PlayerStats_gain_xp():
+	var currentXp = PlayerStats.get_current_xp() + 1
+	var xpToLevel = PlayerStats.get_required_experience(level) 
+	var currentProg = (currentXp / xpToLevel) * 100
+	xpBar.value = currentProg + 20
+
+func _on_PlayerStats_leveled_up():
+	if($Node/AudioStreamPlayer):
+		var music_pos = $Node/AudioStreamPlayer.get_playback_position()
+		$Node/AudioStreamPlayer.stop()
+		$Node/LevelUp.play()
+		yield(get_tree().create_timer(1.8), "timeout")
+		$Node/AudioStreamPlayer.play()
+	
+	level += 1
+	PlayerStats.attackPower += 2
+	stats.MAX_HEALTH += 1
+	stats.health = stats.MAX_HEALTH
+	hpBarMaxHealthValue.text = str(stats.MAX_HEALTH)
+	level_label.text = str(level)
