@@ -146,3 +146,7 @@ func _on_PlayerStats_leveled_up():
 	stats.health = stats.MAX_HEALTH
 	hpBarMaxHealthValue.text = str(stats.MAX_HEALTH)
 	level_label.text = str(level)
+
+
+func _on_ZachOfficeDoor_area_entered(area):
+	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
