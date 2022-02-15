@@ -20,12 +20,13 @@ enum {
 }
 
 func _ready():
+	level_label.text = str(PlayerStats.level)
 	xpBar.value = 0
-	hpBar.value = stats.health
-	hpBar.max_value = stats.health
-	hpBarCurrentValue.text = str(stats.health)
-	hpBarMaxHealthValue.text = str(stats.health)
-	label.text = "HP: " + str(stats.health)
+	hpBar.value = PlayerStats.health
+	hpBar.max_value = PlayerStats.health
+	hpBarCurrentValue.text = str(PlayerStats.health)
+	hpBarMaxHealthValue.text = str(PlayerStats.MAX_HEALTH)
+	label.text = "HP: " + str(PlayerStats.health)
 	$AnimationTree.active = true
 	$deadbutton.hide()
 
@@ -140,13 +141,14 @@ func _on_PlayerStats_leveled_up():
 		yield(get_tree().create_timer(1.8), "timeout")
 		$Node/AudioStreamPlayer.play()
 	
-	level += 1
+	PlayerStats.level += 1
 	PlayerStats.attackPower += 2
-	stats.MAX_HEALTH += 1
-	stats.health = stats.MAX_HEALTH
-	hpBarMaxHealthValue.text = str(stats.MAX_HEALTH)
-	level_label.text = str(level)
 
+	PlayerStats.MAX_HEALTH += 1
+	stats.health = PlayerStats.MAX_HEALTH
+	hpBarMaxHealthValue.text = str(PlayerStats.MAX_HEALTH)
+	level_label.text = str(PlayerStats.level)
 
 func _on_ZachOfficeDoor_area_entered(area):
 	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
+

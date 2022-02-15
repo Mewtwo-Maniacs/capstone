@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/options.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 259.0
+margin_top = 35.0
+margin_right = 379.0
+margin_bottom = 73.0
+text = "Difficulty Settings"
+
+[node name="mediumbutton" type="Button" parent="."]
+margin_left = 267.0
+margin_top = 71.0
+margin_right = 363.0
+margin_bottom = 101.0
+text = "MEDIUM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="easybutton" type="Button" parent="."]
+margin_left = 158.0
+margin_top = 71.0
+margin_right = 254.0
+margin_bottom = 101.0
+text = "EASY"
+
+[node name="hardbutton" type="Button" parent="."]
+margin_left = 375.0
+margin_top = 71.0
+margin_right = 471.0
+margin_bottom = 101.0
+text = "HARD"
+
+[node name="godmodebutton" type="Button" parent="."]
+margin_left = 253.0
+margin_top = 128.0
+margin_right = 381.0
+margin_bottom = 164.0
+text = "GOD MODE"
+
+[node name="easylabel" type="Label" parent="."]
+margin_left = 140.0
+margin_top = 108.0
+margin_right = 268.0
+margin_bottom = 122.0
+text = "Easy mode selected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mediumlabel" type="Label" parent="."]
+margin_left = 241.0
+margin_top = 109.0
+margin_right = 394.0
+margin_bottom = 123.0
+text = "Medium mode selected"
+
+[node name="hardlabel" type="Label" parent="."]
+margin_left = 357.0
+margin_top = 109.0
+margin_right = 487.0
+margin_bottom = 123.0
+text = "Hard mode selected"
+
+[node name="godlabel" type="Label" parent="."]
+margin_left = 253.0
+margin_top = 176.0
+margin_right = 381.0
+margin_bottom = 190.0
+text = "God mode selected"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 262.0
+margin_top = 300.0
+margin_right = 378.0
+margin_bottom = 343.0
+text = "Back"
+
+[connection signal="button_up" from="mediumbutton" to="." method="_on_mediumbutton_button_up"]
+[connection signal="button_up" from="easybutton" to="." method="_on_easybutton_button_up"]
+[connection signal="button_up" from="hardbutton" to="." method="_on_hardbutton_button_up"]
+[connection signal="button_up" from="godmodebutton" to="." method="_on_godmodebutton_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
