@@ -167,8 +167,8 @@ config/icon="res://icon.png"
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 EnemyStats="*res://scripts/Enemy/EnemyStats.gd"
-Cutscene="*res://cutscene.gd"
 PlayerStats="*res://scripts/Player/playerStats.gd"
+Cutscene="*res://cutscene.gd"
 
 [display]
 

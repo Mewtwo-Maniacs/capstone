@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=48 format=2]
+[gd_resource type="TileSet" load_steps=52 format=2]
 
 [ext_resource path="res://assets/FutureFantasy/100/tilesets/future_tileA2.png" type="Texture" id=1]
 [ext_resource path="res://assets/FutureFantasy/100/tilesets/modern_tileA5_inside.png" type="Texture" id=2]
@@ -95,6 +95,9 @@ points = PoolVector2Array( 15.7154, 8.70773, 0.37236, 8.70773, 0.103165, 0, 15.7
 [sub_resource type="ConvexPolygonShape2D" id=33]
 points = PoolVector2Array( 15.7313, 9.24608, 0.119125, 9.24608, 0, 0, 15.3276, 0 )
 
+[sub_resource type="ConvexPolygonShape2D" id=41]
+points = PoolVector2Array( 48, 48, 0, 48, 0, 32, 48, 32 )
+
 [sub_resource type="ConvexPolygonShape2D" id=34]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 
@@ -118,6 +121,15 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=40]
 points = PoolVector2Array( 26.1306, 8.60571, 26.6151, 24.4333, 5.61942, 24.2718, 5.61942, 8.44421 )
+
+[sub_resource type="ConvexPolygonShape2D" id=42]
+points = PoolVector2Array( 16, 48, 0, 48, 0, 32, 16, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+points = PoolVector2Array( 16, 48, 0, 48, 0, 32, 16, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=44]
+points = PoolVector2Array( 16, 48, 0, 48, 0, 32, 16, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
@@ -1014,9 +1026,16 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 49/navigation_offset = Vector2( 0, 0 )
 49/shape_offset = Vector2( 0, 0 )
 49/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+49/shape = SubResource( 41 )
 49/shape_one_way = false
-49/shape_one_way_margin = 0.0
-49/shapes = [  ]
+49/shape_one_way_margin = 1.0
+49/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 41 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 49/z_index = 0
 50/name = "modern_tileB_inside1.png 50"
 50/texture = ExtResource( 7 )
@@ -1417,3 +1436,66 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 74/shape_one_way_margin = 0.0
 74/shapes = [  ]
 74/z_index = 0
+75/name = "future_tileB_lab.png 75"
+75/texture = ExtResource( 3 )
+75/tex_offset = Vector2( 0, 0 )
+75/modulate = Color( 1, 1, 1, 1 )
+75/region = Rect2( 16, 128, 16, 48 )
+75/tile_mode = 0
+75/occluder_offset = Vector2( 0, 0 )
+75/navigation_offset = Vector2( 0, 0 )
+75/shape_offset = Vector2( 0, 0 )
+75/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+75/shape = SubResource( 42 )
+75/shape_one_way = false
+75/shape_one_way_margin = 1.0
+75/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 42 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+75/z_index = 0
+76/name = "future_tileB_lab.png 76"
+76/texture = ExtResource( 3 )
+76/tex_offset = Vector2( 0, 0 )
+76/modulate = Color( 1, 1, 1, 1 )
+76/region = Rect2( 32, 128, 16, 48 )
+76/tile_mode = 0
+76/occluder_offset = Vector2( 0, 0 )
+76/navigation_offset = Vector2( 0, 0 )
+76/shape_offset = Vector2( 0, 0 )
+76/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+76/shape = SubResource( 43 )
+76/shape_one_way = false
+76/shape_one_way_margin = 1.0
+76/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 43 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+76/z_index = 0
+77/name = "future_tileB_lab.png 77"
+77/texture = ExtResource( 3 )
+77/tex_offset = Vector2( 0, 0 )
+77/modulate = Color( 1, 1, 1, 1 )
+77/region = Rect2( 48, 128, 16, 48 )
+77/tile_mode = 0
+77/occluder_offset = Vector2( 0, 0 )
+77/navigation_offset = Vector2( 0, 0 )
+77/shape_offset = Vector2( 0, 0 )
+77/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+77/shape = SubResource( 44 )
+77/shape_one_way = false
+77/shape_one_way_margin = 1.0
+77/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 44 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+77/z_index = 0
