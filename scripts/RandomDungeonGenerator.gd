@@ -7,6 +7,7 @@ var Rooms = preload("res://scenes/RDG_Room.tscn")
 var roomTiles = preload("res://scenes/Worlds/DungeonGenRoomAutotiles.tres")
 var player = preload("res://scenes/Player/player.tscn")
 var enemies = preload("res://scenes/Enemies/BigDemon.tscn")
+var teleporter = preload("res://scenes/Worlds/RDG_Teleporter.tscn")
 
 onready var transition := $SceneTransition/AnimationPlayer
 onready var dungeonBase = $Base
@@ -230,6 +231,11 @@ func spawn_player():
 #	playerCamera.zoom.y = 4
 
 func spawn_enemies():
+	var tele = teleporter.instance()
+	tele.position.x = bossRoom.position.x
+	tele.position.y = bossRoom.position.y
+	get_tree().get_current_scene().add_child(tele)
+	
 	for i in range(3):
 		var currBossEnemy = enemies.instance()
 		instancedEnemies.append(currBossEnemy)
@@ -259,23 +265,22 @@ func save_seed():
 	pass
 
 #Allows for "R" to be pressed for re-generating of rooms: Uncomment _input() and _draw() for debug features
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_R:
-			dungeonBase.clear()
-			transition.play("Fade")
-#			yield(get_tree().create_timer(1), "timeout")
-			for enemy in instancedEnemies:
-				enemy.queue_free()
-			instancedEnemies.clear()
-			mobRoom.clear()
-			treasureRoom.clear()
-			for n in $AllRooms.get_children():
-				n.queue_free()
-			path = null
-			instancedPlayer.queue_free() 
-			make_rooms()
-
+#func _input(event):
+#	if event is InputEventKey and event.pressed:
+#		if event.scancode == KEY_R:
+#			dungeonBase.clear()
+#			transition.play("Fade")
+##			yield(get_tree().create_timer(1), "timeout")
+#			for enemy in instancedEnemies:
+#				enemy.queue_free()
+#			instancedEnemies.clear()
+#			mobRoom.clear()
+#			treasureRoom.clear()
+#			for n in $AllRooms.get_children():
+#				n.queue_free()
+#			path = null
+#			instancedPlayer.queue_free() 
+#			make_rooms()
 
 #Draws the outlines of rooms & paths
 #func _draw():
