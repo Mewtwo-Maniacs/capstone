@@ -20,7 +20,7 @@ func unpause(timeline_name):
 
 func _on_TopSign_body_entered(body):
 	if body.name == 'Player':
-		$topSign.text = "'E'"
+		$topSign.text = "Press 'E' to read"
 		active = true
 
 func _on_TopSign_body_exited(body):

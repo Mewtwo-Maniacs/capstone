@@ -10,7 +10,7 @@ var stats = {
 	MELEE_ATTACK: MELEE_ATTACK
 }
 
-var difficulty = MEDIUM
+var difficulty = NIGHTMARE
 enum {
 	EASY, 
 	MEDIUM,
@@ -31,6 +31,7 @@ func set_health(value):
 
 # warning-ignore:shadowed_variable
 func select_difficulty(difficulty): 
+	print('inside select diff')
 	match difficulty: 
 		
 		EASY:
@@ -38,6 +39,7 @@ func select_difficulty(difficulty):
 				stat = stat / 2
 				
 		MEDIUM: 
+			print('set to medium')
 			pass
 			
 		HARD: 
@@ -45,5 +47,6 @@ func select_difficulty(difficulty):
 				stat = stat * 3
 				
 		NIGHTMARE:
+			print ('set to nightmare')
 			for stat in stats.values():
 				stat = stat * 6
