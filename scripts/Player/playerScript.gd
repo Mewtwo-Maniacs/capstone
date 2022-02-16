@@ -107,6 +107,11 @@ func _on_PlayerStats_no_health():
 
 var hurtCount = 0
 func _on_PlayerStats_update_health():
+	if(stats.health == PlayerStats.MAX_HEALTH):
+		label.text = "HP: " + str(stats.health)
+		hpBarCurrentValue.text = str(stats.health)
+		hpBar.value = stats.health
+		return
 	hurtCount += 1
 	if(hurtCount % 2 == 0):
 		$Node/Damaged2.play()
