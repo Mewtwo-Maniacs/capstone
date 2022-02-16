@@ -55,7 +55,6 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 88, 563 )
-speed = 300
 
 [node name="AnimationTree" parent="Player" index="3"]
 parameters/playback = SubResource( 1 )
@@ -75,6 +74,9 @@ current = true
 position = Vector2( 857, 133 )
 scale = Vector2( 0.5, 0.5 )
 MAX_SPEED = 150
+
+[node name="AnimatedSprite" parent="BigDemon" index="0"]
+frame = 0
 
 [node name="Stats" parent="BigDemon" index="7"]
 MAX_HEALTH = 125
@@ -112,6 +114,9 @@ scale = Vector2( 0.75, 0.75 )
 [node name="BigDemon2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 534, 115 )
 MAX_SPEED = 85
+
+[node name="AnimatedSprite" parent="BigDemon2" index="0"]
+frame = 0
 
 [node name="Stats" parent="BigDemon2" index="7"]
 MAX_HEALTH = 300
