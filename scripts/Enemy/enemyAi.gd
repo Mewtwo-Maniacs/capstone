@@ -25,10 +25,11 @@ onready var enemyStats = $Stats
 onready var label = $HealthUI/Label
 onready var enemyHurtBox = $HurtBox
 onready var player_level = get_node("/root/PlayerStats").get("level")
-
+var NIGHTMARE
 func _ready():
 	state = pick_new_state([IDLE, WANDER])
 	label.text = "HP: " + str(enemyStats.health)
+	EnemyStats.select_difficulty(NIGHTMARE)
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)

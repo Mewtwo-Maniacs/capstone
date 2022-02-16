@@ -15,6 +15,6 @@ func _on_Play_pressed():
 func _on_Login_pressed():
 	get_tree().change_scene("res://scenes/login.tscn")
 func _on_Options_pressed():
-	pass
+	get_tree().change_scene("res://scenes/options.tscn")
 func _on_Quit_pressed():
 	get_tree().quit()

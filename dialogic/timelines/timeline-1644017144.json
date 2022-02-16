@@ -18,13 +18,19 @@
 			"character": "character-1644017111.json",
 			"event_id": "dialogic_001",
 			"portrait": "omarHappy",
-			"text": "Finally you are here! Mac has been taken over by AI and got sucked into the computers!"
+			"text": "Oh thank goodness you're here! We don't really know what is going on. "
 		},
 		{
 			"character": "character-1644017111.json",
 			"event_id": "dialogic_001",
 			"portrait": "omarHappy",
-			"text": "Get in there and save Mac! Save us all..."
+			"text": "Something's attacking our system and we're losing data by the minute. If we don't fix it soon, there's going to be nothing left, and everyone's work will be gone."
+		},
+		{
+			"character": "character-1644017111.json",
+			"event_id": "dialogic_001",
+			"portrait": "omarHappy",
+			"text": "Head to Zach's office by stepping on the teleporter just to my left, and press 'E.'"
 		},
 		{
 			"event_id": "dialogic_022",

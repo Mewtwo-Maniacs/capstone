@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This teleporter will take you to Zac's office, step on it from the right side, and press 'E'"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1644971513.json",
+		"name": "zacSign"
+	}
+}
