@@ -9,7 +9,7 @@
 			"position": {
 				"0": false,
 				"1": false,
-				"2": false,
+				"2": true,
 				"3": false,
 				"4": false
 			}
@@ -18,13 +18,7 @@
 			"character": "character-1644529747.json",
 			"event_id": "dialogic_001",
 			"portrait": "MacHappy",
-			"text": "... Whaa....? ... what... happened?"
-		},
-		{
-			"character": "character-1644529747.json",
-			"event_id": "dialogic_001",
-			"portrait": "MacHappy",
-			"text": "Where am I? Why does my mouth taste like batteries...?"
+			"text": "NICE!!! You've defeated the main bug!\nI managed to free myself while he was distracted with you, I'm working on getting these bugs out now.\nIt seems there are still a ton of bugs in that other area... maybe you can head in there and see what you can do while I try to undo all of this damage...\nHead through the portal and check out the other dungeon."
 		},
 		{
 			"event_id": "dialogic_022",

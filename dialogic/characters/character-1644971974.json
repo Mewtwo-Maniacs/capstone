@@ -8,13 +8,17 @@
 	"name": "Zach",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": -185,
+	"offset_y": -125,
 	"portraits": [
 		{
 			"name": "Default",
 			"path": ""
+		},
+		{
+			"name": "zach",
+			"path": "res://assets/portraits/zach.png"
 		}
 	],
-	"scale": 100
+	"scale": 20
 }

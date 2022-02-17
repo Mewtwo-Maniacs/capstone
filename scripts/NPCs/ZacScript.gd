@@ -13,7 +13,7 @@ func _input(event):
 	if get_node_or_null('DialogNode') == null:
 		if event.is_action_pressed("ui_yeet") and active:
 			get_tree().paused = true
-			var dialog = Dialogic.start('timeline-1')
+			var dialog = Dialogic.start('zachOffice')
 			dialog.pause_mode = Node.PAUSE_MODE_PROCESS
 			dialog.connect('timeline_end', self, 'unpause')
 			add_child(dialog)
