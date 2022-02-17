@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SFX/big_boss_2_0.wav" type="AudioStream" id=2]
 [ext_resource path="res://scenes/Enemies/BigDemon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Worlds/level1.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/NPCs/Mac.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Worlds/BossEndSign.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Worlds/BossEndTele.gd" type="Script" id=7]
 [ext_resource path="res://scenes/Worlds/boss_level_tileset.tres" type="TileSet" id=8]
@@ -53,7 +54,7 @@ disabled = true
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65537, 22, 0, 65538, 22, 0, 65539, 22, 0, 65540, 22, 0, 65541, 22, 0, 65542, 22, 0, 65543, 22, 0, 65544, 22, 0, 65545, 22, 0, 65546, 22, 0, 65547, 22, 0, 65548, 22, 0, 65549, 22, 0, 65550, 22, 0, 65551, 22, 0, 65552, 22, 0, 65553, 22, 0, 65554, 22, 0, 65555, 22, 0, 65556, 22, 0, 65557, 22, 0, 65558, 22, 0, 65559, 22, 0, 65560, 22, 0, 851968, 22, 0, 851993, 22, 0, 917504, 22, 0, 917505, 22, 0, 917506, 22, 0, 917507, 22, 0, 917508, 22, 0, 917509, 22, 0, 917510, 22, 0, 917511, 22, 0, 917512, 22, 0, 917513, 22, 0, 917514, 22, 0, 917515, 22, 0, 917516, 22, 0, 917517, 22, 0, 917518, 22, 0, 917519, 22, 0, 917520, 22, 0, 917521, 22, 0, 917522, 22, 0, 917523, 22, 0, 917524, 22, 0, 917525, 22, 0, 917526, 22, 0, 917527, 22, 0, 917528, 22, 0, 917529, 22, 0 )
+tile_data = PoolIntArray( 65537, 22, 0, 65538, 22, 0, 65539, 22, 0, 65540, 22, 0, 65541, 22, 0, 65542, 22, 0, 65543, 22, 0, 65544, 22, 0, 65545, 22, 0, 65546, 22, 0, 65547, 22, 0, 65548, 22, 0, 65549, 22, 0, 65550, 22, 0, 65551, 22, 0, 65552, 22, 0, 65553, 22, 0, 65554, 22, 0, 65555, 22, 0, 65556, 22, 0, 65557, 22, 0, 65558, 22, 0, 65559, 22, 0, 65560, 22, 0, 655382, 22, 0, 655383, 22, 0, 655384, 22, 0, 720918, 22, 0, 786454, 22, 0, 851990, 22, 0, 851993, 22, 0, 917504, 22, 0, 917505, 22, 0, 917506, 22, 0, 917507, 22, 0, 917508, 22, 0, 917509, 22, 0, 917510, 22, 0, 917511, 22, 0, 917512, 22, 0, 917513, 22, 0, 917514, 22, 0, 917515, 22, 0, 917516, 22, 0, 917517, 22, 0, 917518, 22, 0, 917519, 22, 0, 917520, 22, 0, 917521, 22, 0, 917522, 22, 0, 917523, 22, 0, 917524, 22, 0, 917525, 22, 0, 917526, 22, 0, 917527, 22, 0, 917528, 22, 0, 917529, 22, 0 )
 
 [node name="YSort" type="YSort" parent="Collisions"]
 
@@ -117,6 +118,9 @@ position = Vector2( 483, 61 )
 stream = ExtResource( 2 )
 volume_db = -30.0
 autoplay = true
+
+[node name="Mac" parent="." instance=ExtResource( 5 )]
+position = Vector2( 389, 192 )
 
 [connection signal="leveler" from="BigDemon2SLOWER" to="Player/PlayerStats" method="_on_BossDemon_leveler"]
 
