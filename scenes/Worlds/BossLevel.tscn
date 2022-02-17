@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SFX/big_boss_2_0.wav" type="AudioStream" id=2]
 [ext_resource path="res://scenes/Enemies/BigDemon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Worlds/Teleporter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Worlds/level1.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/NPCs/Mac.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Worlds/BossEndSign.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Worlds/BossEndTele.gd" type="Script" id=7]
 [ext_resource path="res://scenes/Worlds/boss_level_tileset.tres" type="TileSet" id=8]
@@ -27,14 +28,14 @@ position = Vector2( 4, 91 )
 script = ExtResource( 7 )
 
 [node name="bossTele" type="CollisionShape2D" parent="BossEndTele"]
-position = Vector2( 276, 413 )
+position = Vector2( 36, -35 )
 shape = SubResource( 1 )
 
 [node name="bossTeleLabel" type="Label" parent="BossEndTele"]
-margin_left = 302.0
-margin_top = 401.0
-margin_right = 333.0
-margin_bottom = 429.0
+margin_left = 67.0
+margin_top = -45.0
+margin_right = 98.0
+margin_bottom = -17.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,12 +48,13 @@ script = ExtResource( 6 )
 [node name="DetectionZone" type="CollisionShape2D" parent="BossDialogue"]
 position = Vector2( 208, 202.5 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Collisions" type="TileMap" parent="."]
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65537, 22, 0, 65538, 22, 0, 65539, 22, 0, 65540, 22, 0, 65541, 22, 0, 65542, 22, 0, 65543, 22, 0, 65544, 22, 0, 65545, 22, 0, 65546, 22, 0, 65547, 22, 0, 65548, 22, 0, 65549, 22, 0, 65550, 22, 0, 65551, 22, 0, 65552, 22, 0, 65553, 22, 0, 65554, 22, 0, 65555, 22, 0, 65556, 22, 0, 65557, 22, 0, 65558, 22, 0, 65559, 22, 0, 65560, 22, 0, 851968, 22, 0, 851993, 22, 0, 917504, 22, 0, 917505, 22, 0, 917506, 22, 0, 917507, 22, 0, 917508, 22, 0, 917509, 22, 0, 917510, 22, 0, 917511, 22, 0, 917512, 22, 0, 917513, 22, 0, 917514, 22, 0, 917515, 22, 0, 917516, 22, 0, 917517, 22, 0, 917518, 22, 0, 917519, 22, 0, 917520, 22, 0, 917521, 22, 0, 917522, 22, 0, 917523, 22, 0, 917524, 22, 0, 917525, 22, 0, 917526, 22, 0, 917527, 22, 0, 917528, 22, 0, 917529, 22, 0 )
+tile_data = PoolIntArray( 65537, 22, 0, 65538, 22, 0, 65539, 22, 0, 65540, 22, 0, 65541, 22, 0, 65542, 22, 0, 65543, 22, 0, 65544, 22, 0, 65545, 22, 0, 65546, 22, 0, 65547, 22, 0, 65548, 22, 0, 65549, 22, 0, 65550, 22, 0, 65551, 22, 0, 65552, 22, 0, 65553, 22, 0, 65554, 22, 0, 65555, 22, 0, 65556, 22, 0, 65557, 22, 0, 65558, 22, 0, 65559, 22, 0, 65560, 22, 0, 655382, 22, 0, 655383, 22, 0, 655384, 22, 0, 720918, 22, 0, 786454, 22, 0, 851990, 22, 0, 851993, 22, 0, 917504, 22, 0, 917505, 22, 0, 917506, 22, 0, 917507, 22, 0, 917508, 22, 0, 917509, 22, 0, 917510, 22, 0, 917511, 22, 0, 917512, 22, 0, 917513, 22, 0, 917514, 22, 0, 917515, 22, 0, 917516, 22, 0, 917517, 22, 0, 917518, 22, 0, 917519, 22, 0, 917520, 22, 0, 917521, 22, 0, 917522, 22, 0, 917523, 22, 0, 917524, 22, 0, 917525, 22, 0, 917526, 22, 0, 917527, 22, 0, 917528, 22, 0, 917529, 22, 0 )
 
 [node name="YSort" type="YSort" parent="Collisions"]
 
@@ -63,10 +65,13 @@ show_collision = true
 format = 1
 tile_data = PoolIntArray( -65536, 1, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -65521, 3, 0, -65520, 3, 0, -65519, 3, 0, -65518, 3, 0, -65517, 3, 0, -65516, 3, 0, -65515, 3, 0, -65514, 3, 0, -65513, 3, 0, -65512, 3, 0, -65511, 2, 0, 0, 1, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0, 19, 3, 0, 20, 3, 0, 21, 3, 0, 22, 3, 0, 23, 3, 0, 24, 3, 0, 25, 2, 0, 65536, 1, 0, 65537, 3, 0, 65538, 3, 0, 65539, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 65546, 3, 0, 65547, 3, 0, 65548, 3, 0, 65549, 3, 0, 65550, 3, 0, 65551, 3, 0, 65552, 3, 0, 65553, 3, 0, 65554, 3, 0, 65555, 3, 0, 65556, 3, 0, 65557, 3, 0, 65558, 3, 0, 65559, 3, 0, 65560, 3, 0, 65561, 2, 0, 131072, 1, 0, 131097, 2, 0, 196608, 1, 0, 196633, 2, 0, 262144, 1, 0, 262169, 2, 0, 327680, 1, 0, 327705, 2, 0, 393216, 1, 0, 393241, 2, 0, 458752, 1, 0, 458777, 2, 0, 524288, 1, 0, 524313, 2, 0, 589824, 1, 0, 589849, 2, 0, 655360, 1, 0, 655385, 2, 0, 720896, 1, 0, 720921, 2, 0, 786432, 1, 0, 786457, 2, 0 )
 
-[node name="Teleporter" parent="Collisions/YSort/TopWall" instance=ExtResource( 4 )]
-position = Vector2( 39, 56 )
+[node name="Tele" type="TileMap" parent="Collisions/YSort/TopWall"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131073, 53, 0 )
 
-[node name="Decorations" type="TileMap" parent="Collisions/YSort/TopWall"]
+[node name="Decorations" type="TileMap" parent="Collisions/YSort/TopWall/Tele"]
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -99,6 +104,9 @@ position = Vector2( 310, 86 )
 scale = Vector2( 1.25, 1.25 )
 MAX_SPEED = 20
 
+[node name="AnimatedSprite" parent="BigDemon2SLOWER" index="0"]
+frame = 3
+
 [node name="Stats" parent="BigDemon2SLOWER" index="7"]
 MAX_HEALTH = 1000
 
@@ -110,6 +118,9 @@ position = Vector2( 483, 61 )
 stream = ExtResource( 2 )
 volume_db = -30.0
 autoplay = true
+
+[node name="Mac" parent="." instance=ExtResource( 5 )]
+position = Vector2( 389, 192 )
 
 [connection signal="leveler" from="BigDemon2SLOWER" to="Player/PlayerStats" method="_on_BossDemon_leveler"]
 
