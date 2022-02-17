@@ -1664,27 +1664,27 @@ visible = false
 
 [node name="Attack" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 79 )
-volume_db = -38.0
+volume_db = -22.0
 
 [node name="Damaged" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 82 )
-volume_db = -38.0
+volume_db = -25.0
 
 [node name="Damaged2" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 80 )
-volume_db = -38.0
+volume_db = -25.0
 
 [node name="Damaged3" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 81 )
-volume_db = -38.0
+volume_db = -25.0
 
 [node name="Death" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 83 )
-volume_db = -38.0
+volume_db = -18.0
 
 [node name="LevelUp" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 86 )
-volume_db = -25.0
+volume_db = -27.0
 
 [node name="Control" type="Control" parent="."]
 margin_left = -65.0
