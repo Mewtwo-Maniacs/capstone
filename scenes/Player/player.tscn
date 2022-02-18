@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://assets/characters/char3/Character with sword and shield/walk/walk up2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/playerScript.gd" type="Script" id=2]
@@ -86,6 +86,7 @@
 [ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=84]
 [ext_resource path="res://scripts/Menus/HUD.gd" type="Script" id=85]
 [ext_resource path="res://assets/SFX/chipquest.wav" type="AudioStream" id=86]
+[ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=87]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 5.5 )
@@ -1664,27 +1665,27 @@ visible = false
 
 [node name="Attack" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 79 )
-volume_db = -22.0
+bus = "BGM"
 
 [node name="Damaged" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 82 )
-volume_db = -25.0
+bus = "SFX"
 
 [node name="Damaged2" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 80 )
-volume_db = -25.0
+bus = "SFX"
 
 [node name="Damaged3" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 81 )
-volume_db = -25.0
+bus = "SFX"
 
 [node name="Death" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 83 )
-volume_db = -18.0
+bus = "SFX"
 
 [node name="LevelUp" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource( 86 )
-volume_db = -27.0
+bus = "SFX"
 
 [node name="Control" type="Control" parent="."]
 margin_left = -65.0
@@ -1708,6 +1709,13 @@ text = "RESPAWN"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PauseMenu" parent="." instance=ExtResource( 87 )]
+visible = false
+margin_left = -348.75
+margin_top = -185.0
+margin_right = -348.75
+margin_bottom = -185.0
 
 [connection signal="area_entered" from="HitboxPivot/SwordHitbox" to="." method="_on_SwordHitbox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

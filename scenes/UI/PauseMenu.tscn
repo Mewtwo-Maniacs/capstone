@@ -32,7 +32,7 @@ __meta__ = {
 [node name="insidePauseMenu" type="VBoxContainer" parent="."]
 margin_left = 246.0
 margin_top = 190.0
-margin_right = 388.0
+margin_right = 414.0
 margin_bottom = 332.0
 custom_constants/separation = 6
 __meta__ = {
@@ -51,6 +51,7 @@ __meta__ = {
 }
 
 [node name="Options" type="Button" parent="insidePauseMenu"]
+visible = false
 margin_top = 37.0
 margin_right = 168.0
 margin_bottom = 68.0
@@ -63,9 +64,9 @@ __meta__ = {
 }
 
 [node name="Base" type="Button" parent="insidePauseMenu"]
-margin_top = 74.0
+margin_top = 37.0
 margin_right = 168.0
-margin_bottom = 105.0
+margin_bottom = 68.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.431373, 0.431373, 0.431373, 1 )
 custom_fonts/font = SubResource( 2 )
@@ -75,9 +76,9 @@ __meta__ = {
 }
 
 [node name="Quit" type="Button" parent="insidePauseMenu"]
-margin_top = 111.0
+margin_top = 74.0
 margin_right = 168.0
-margin_bottom = 142.0
+margin_bottom = 105.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.431373, 0.431373, 0.431373, 1 )
 custom_fonts/font = SubResource( 2 )
@@ -86,20 +87,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.503
-anchor_top = 0.272
-anchor_right = 0.503
-anchor_bottom = 0.272
-margin_left = -125.92
-margin_top = 17.08
-margin_right = -65.92
-margin_bottom = 33.08
+margin_left = 196.0
+margin_top = 115.0
+margin_right = 256.0
+margin_bottom = 131.0
 rect_scale = Vector2( 4, 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_x = 1

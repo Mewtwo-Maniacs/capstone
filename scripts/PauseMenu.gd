@@ -22,7 +22,7 @@ func _on_Resume_pressed():
 
 
 func _on_Quit_pressed():
-	get_tree().quit
+	get_tree().quit()
 
 
 func _on_TitleScreen_pressed():
