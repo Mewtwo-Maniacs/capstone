@@ -129,8 +129,8 @@ flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -30.975
 autoplay = true
+bus = "BGM"
 
 [node name="Names" type="Label" parent="."]
 margin_left = 1.0

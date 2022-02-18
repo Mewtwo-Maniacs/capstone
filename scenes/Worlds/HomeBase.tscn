@@ -200,7 +200,7 @@ position = Vector2( 682, 59 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -30.0
 autoplay = true
+bus = "BGM"
 
 [connection signal="area_entered" from="MainDoor" to="Player" method="_on_MainDoor_area_entered"]

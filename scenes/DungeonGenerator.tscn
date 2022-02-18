@@ -10,8 +10,8 @@ script = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -35.0
 autoplay = true
+bus = "BGM"
 
 [node name="Base" type="TileMap" parent="."]
 show_behind_parent = true

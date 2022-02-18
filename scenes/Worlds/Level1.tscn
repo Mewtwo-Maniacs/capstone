@@ -120,10 +120,34 @@ position = Vector2( 142, 63 )
 [node name="AnimationTree" parent="Player" index="3"]
 parameters/playback = SubResource( 3 )
 
+[node name="Attack" parent="Player/Node" index="0"]
+volume_db = 0.0
+bus = "SFX"
+
+[node name="Damaged" parent="Player/Node" index="1"]
+volume_db = 0.0
+bus = "SFX"
+
+[node name="Damaged2" parent="Player/Node" index="2"]
+volume_db = 0.0
+bus = "SFX"
+
+[node name="Damaged3" parent="Player/Node" index="3"]
+volume_db = 0.0
+bus = "SFX"
+
+[node name="Death" parent="Player/Node" index="4"]
+volume_db = 0.0
+bus = "SFX"
+
+[node name="LevelUp" parent="Player/Node" index="5"]
+volume_db = 0.0
+bus = "SFX"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/Node" index="6"]
 stream = ExtResource( 7 )
-volume_db = -30.0
 autoplay = true
+bus = "BGM"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true

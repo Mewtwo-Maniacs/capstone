@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Worlds/level2.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/Worlds/level2Walls.tres" type="TileSet" id=3]
-[ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Level 2.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/SFX/Juhani Junkala [Retro Game Music Pack] Level 3.wav" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Enemies/BigDemon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Worlds/Teleporter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Worlds/DetectionZoneL2.gd" type="Script" id=7]
@@ -71,10 +71,16 @@ parameters/playback = SubResource( 1 )
 [node name="HUD" parent="Player" index="8"]
 process_priority = 1
 
+[node name="Attack" parent="Player/Node" index="0"]
+bus = "SFX"
+
+[node name="LevelUp" parent="Player/Node" index="5"]
+volume_db = -10.487
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/Node" index="6"]
 stream = ExtResource( 4 )
-volume_db = -30.0
 autoplay = true
+bus = "BGM"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -83,9 +89,6 @@ current = true
 position = Vector2( 857, 133 )
 scale = Vector2( 0.5, 0.5 )
 MAX_SPEED = 150
-
-[node name="AnimatedSprite" parent="BigDemon" index="0"]
-frame = 1
 
 [node name="Stats" parent="BigDemon" index="7"]
 MAX_HEALTH = 125
@@ -123,9 +126,6 @@ scale = Vector2( 0.75, 0.75 )
 [node name="BigDemon2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 534, 115 )
 MAX_SPEED = 85
-
-[node name="AnimatedSprite" parent="BigDemon2" index="0"]
-frame = 1
 
 [node name="Stats" parent="BigDemon2" index="7"]
 MAX_HEALTH = 300
