@@ -1,0 +1,33 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1644971974.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "zach",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1644971974.json",
+			"event_id": "dialogic_001",
+			"portrait": "zach",
+			"text": "They got you helping out too?\nOmar told you to check in with me? I see. Here's the breakdown:\nWe don't know how, but something got into our system. It's corrupting our files and ruining what we worked on for the past few months.\nThere's no way it could've gotten in without some inside help. But right now, it's more important that we stop this thing.\nI'm normally not one to send students in bad situations, but we have no choice.\nIt's going to be dangerous in there. Take this sword to defend yourself.\nPress the \"SPACEBAR\" to attack and press \"SHIFT\" while running to roll.\nWe're counting on you. Be safe out there."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1645127917.json",
+		"name": "zachOffice"
+	}
+}

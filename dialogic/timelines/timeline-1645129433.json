@@ -6,14 +6,14 @@
 			"event_id": "dialogic_030",
 			"event_name": "AudioEvent",
 			"file": "res://assets/SFX/boss theme.ogg",
-			"volume": -30
+			"volume": -35
 		},
 		{
 			"action": "join",
-			"character": "character-1644529747.json",
+			"character": "character-1644971974.json",
 			"event_id": "dialogic_002",
 			"mirror": false,
-			"portrait": "MacHappy",
+			"portrait": "zach",
 			"position": {
 				"0": false,
 				"1": false,
@@ -23,19 +23,19 @@
 			}
 		},
 		{
-			"character": "character-1644529747.json",
+			"character": "character-1644971974.json",
 			"event_id": "dialogic_001",
-			"portrait": "MacHappy",
-			"text": "Help! They got me trapped in here.\n\nDefeat him and we could turn Academy Fullstack back to normal!!"
+			"portrait": "zach",
+			"text": "This area is some sort of maze... but I’m detecting some kind of lifeform in the next area. \nIt might be Mac, get in there quick! He could be in danger."
 		},
 		{
 			"event_id": "dialogic_022",
-			"transition_duration": 1
+			"transition_duration": 0.2
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.3",
-		"file": "timeline-1644530602.json",
-		"name": "preBossFight"
+		"file": "timeline-1645129433.json",
+		"name": "zachLevel2"
 	}
 }
