@@ -11,10 +11,10 @@ func _ready():
 	$mainMenu/Play.grab_focus()
 	
 func _on_Play_pressed():
-	get_tree().change_scene("res://scenes/Worlds/HomeBase.tscn")
+	get_tree().change_scene("res://scenes/UI/Controls.tscn")
 func _on_Login_pressed():
 	get_tree().change_scene("res://scenes/login.tscn")
 func _on_Options_pressed():
-	get_tree().change_scene("res://scenes/options.tscn")
+	get_tree().change_scene("res://scenes/UI/Controls.tscn")
 func _on_Quit_pressed():
 	get_tree().quit()

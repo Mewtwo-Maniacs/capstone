@@ -86,8 +86,9 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="mainMenu"]
+margin_top = 13.0
 margin_right = 155.0
-margin_bottom = 22.0
+margin_bottom = 35.0
 focus_neighbour_top = NodePath("../Quit")
 custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
 custom_fonts/font = SubResource( 2 )
@@ -95,9 +96,9 @@ text = "Play"
 flat = true
 
 [node name="Login" type="Button" parent="mainMenu"]
-margin_top = 26.0
+margin_top = 39.0
 margin_right = 155.0
-margin_bottom = 48.0
+margin_bottom = 61.0
 rect_pivot_offset = Vector2( -347, -157 )
 custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -105,6 +106,7 @@ text = "Login"
 flat = true
 
 [node name="Options" type="Button" parent="mainMenu"]
+visible = false
 margin_top = 52.0
 margin_right = 155.0
 margin_bottom = 74.0
@@ -115,9 +117,9 @@ text = "Options"
 flat = true
 
 [node name="Quit" type="Button" parent="mainMenu"]
-margin_top = 78.0
+margin_top = 65.0
 margin_right = 155.0
-margin_bottom = 100.0
+margin_bottom = 87.0
 rect_pivot_offset = Vector2( -347, -157 )
 focus_neighbour_bottom = NodePath("../Play")
 custom_colors/font_color_focus = Color( 0.85098, 0.341176, 0.388235, 1 )
